@@ -16,6 +16,35 @@ const json = (body: unknown, status = 200) =>
 
 const clean = (v: unknown, max: number) => (typeof v === 'string' ? v.trim().slice(0, max) : '')
 
+const reasons: Record<number, string> = {
+  401: 'SendGrid rejected the API key. Check SENDGRID_API_KEY in Vercel.',
+  403: 'SendGrid refused the sender or key permission. Verify CONTACT_FROM_EMAIL as a Single Sender and give the key Mail Send access.',
+}
+
+const sendgrid = (key: string, body: object) =>
+  fetch('https://api.sendgrid.com/v3/mail/send', {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify(body),
+  })
+
+/** Setup check: open /api/contact in a browser. Uses SendGrid's sandbox, so nothing is emailed. */
+export async function GET() {
+  const key = process.env.SENDGRID_API_KEY
+  const from = process.env.CONTACT_FROM_EMAIL
+  const to = process.env.CONTACT_TO_EMAIL || from
+  const config = { SENDGRID_API_KEY: Boolean(key), CONTACT_FROM_EMAIL: Boolean(from), CONTACT_TO_EMAIL: Boolean(process.env.CONTACT_TO_EMAIL) }
+  if (!key || !from || !to) return json({ ok: false, config, problem: 'Missing environment variables in Vercel. Add them, then redeploy.' })
+  const res = await sendgrid(key, {
+    personalizations: [{ to: [{ email: to }] }],
+    from: { email: from },
+    subject: 'Setup check',
+    content: [{ type: 'text/plain', value: 'Setup check' }],
+    mail_settings: { sandbox_mode: { enable: true } },
+  })
+  return json({ ok: res.ok, config, sendgridStatus: res.status, problem: res.ok ? null : reasons[res.status] || 'SendGrid returned an error. See the function logs in Vercel.' })
+}
+
 export async function POST(request: Request) {
   const key = process.env.SENDGRID_API_KEY
   const from = process.env.CONTACT_FROM_EMAIL
@@ -34,16 +63,12 @@ export async function POST(request: Request) {
   const message = clean(data.message, MAX.message)
   if (!name || !message || !/^\S+@\S+\.\S+$/.test(email)) return json({ error: 'Missing fields' }, 400)
 
-  const res = await fetch('https://api.sendgrid.com/v3/mail/send', {
-    method: 'POST',
-    headers: { Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      personalizations: [{ to: [{ email: to }] }],
-      from: { email: from, name: 'Portfolio contact form' },
-      reply_to: { email, name },
-      subject: `Portfolio message from ${name}${company ? `, ${company}` : ''}`,
-      content: [{ type: 'text/plain', value: `${message}\n\n${name}\n${email}${company ? `\n${company}` : ''}` }],
-    }),
+  const res = await sendgrid(key, {
+    personalizations: [{ to: [{ email: to }] }],
+    from: { email: from, name: 'Portfolio contact form' },
+    reply_to: { email, name },
+    subject: `Portfolio message from ${name}${company ? `, ${company}` : ''}`,
+    content: [{ type: 'text/plain', value: `${message}\n\n${name}\n${email}${company ? `\n${company}` : ''}` }],
   })
 
   if (!res.ok) {
