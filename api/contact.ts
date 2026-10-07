@@ -1,3 +1,4 @@
+/// <reference types="node" />
 /**
  * Contact form handler (Vercel Function).
  * Emails each message to you through Twilio SendGrid.
