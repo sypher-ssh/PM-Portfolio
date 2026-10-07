@@ -28,12 +28,8 @@ const sendgrid = (key: string, body: object) =>
     body: JSON.stringify(body),
   })
 
-/**
- * Setup check: open /api/contact in a browser. Uses SendGrid's sandbox, so nothing is emailed.
- * /api/contact?send=1 sends a real test email to CONTACT_TO_EMAIL and shows SendGrid's reply.
- */
-export async function GET(request: Request) {
-  const real = new URL(request.url).searchParams.get('send') === '1'
+/** Setup check: open /api/contact in a browser. Uses SendGrid's sandbox, so nothing is emailed. */
+export async function GET() {
   const key = process.env.SENDGRID_API_KEY
   const from = process.env.CONTACT_FROM_EMAIL
   const to = process.env.CONTACT_TO_EMAIL || from
@@ -44,10 +40,10 @@ export async function GET(request: Request) {
     from: { email: from },
     subject: 'Setup check',
     content: [{ type: 'text/plain', value: 'Setup check' }],
-    ...(real ? {} : { mail_settings: { sandbox_mode: { enable: true } } }),
+    mail_settings: { sandbox_mode: { enable: true } },
   })
   const detail = res.ok ? null : ((await res.json().catch(() => null))?.errors ?? []).map((e: { message?: string }) => e.message)
-  return json({ ok: res.ok, mode: real ? 'real' : 'sandbox', config, sendgridStatus: res.status, problem: res.ok ? null : reasons[res.status] || 'SendGrid returned an error.', detail })
+  return json({ ok: res.ok, config, sendgridStatus: res.status, problem: res.ok ? null : reasons[res.status] || 'SendGrid returned an error.', detail })
 }
 
 export async function POST(request: Request) {
