@@ -603,6 +603,26 @@ function Status() {
   )
 }
 
+function Lesson() {
+  const ref = useRise('.reflect__body p')
+  return (
+    <section ref={ref} className="case-sec case-sec--tint reflect" data-chapter="lesson" data-label="Looking back" aria-labelledby="ls-title">
+      <div className="wrap split">
+        <div className="split__side">
+          <Head id="ls-title" k="Looking back" title="What I’d do differently">
+            We started building from the first idea. The design was finished before we found out the features wouldn’t carry the product.
+          </Head>
+        </div>
+        <div className="reflect__body t-lead">
+          <p>That came from a hard conversation with a potential angel investor. We went back to the drawing board and redid everything, starting with the design. That’s when AERRAND really started. Running your own startup is a different job from managing a project for someone else.</p>
+          <p>Next time I’d talk to people before building: people already working in the field, and people who advise startups. Research tells you what exists. People with experience tell you what the market actually wants, and when what they say makes sense, it’s stronger validation than anything I can read.</p>
+          <p>I wouldn’t undo it, though. Without that rebuild I wouldn’t have learned what I know now.</p>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 export default function Aerrand() {
   useTitle('AERRAND case study', 'How AERRAND, a same-day delivery platform for Windsor, Ontario, was designed around trust: five surfaces, Aerrand Guard, a 100+ delivery pilot and the 2.0 redesign.')
   return (
@@ -620,6 +640,7 @@ export default function Aerrand() {
       <Decisions />
       <Metrics />
       <Status />
+      <Lesson />
       <NextCase to="/work/brain-box" name="Brain Box" theme="wine" summary="One calm, accessible app for the tests newcomers face: language, driving and citizenship.">
         <IPhone src={brainbox.home} alt="" statusBar={false} width="var(--next-phone)" finish="black" />
       </NextCase>

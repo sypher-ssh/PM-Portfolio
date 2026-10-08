@@ -850,6 +850,8 @@ button { font: inherit; color: inherit; }
 @media (max-width: 560px) { .metric { grid-template-columns: 44px minmax(0, 1fr); } .metric__meta { grid-column: 2; text-align: left; } .metric__who { display: inline; margin-left: 8px; } }
 
 /* Status */
+.reflect__body { max-width: 36em; display: grid; gap: 1.1em; }
+.reflect__body p { margin: 0; }
 .status-list { list-style: none; margin: 0; padding: 0; border-top: 1.5px solid var(--color-ink); }
 .status-row { display: grid; grid-template-columns: 130px minmax(0, 1fr) minmax(0, 1.4fr); gap: 24px; align-items: center; padding: 22px 0; border-bottom: 1px solid rgba(22,33,28,.16); }
 .status-row__s { font-family: var(--font-display); font-weight: 800; font-size: clamp(28px, 2.4vw, 40px); line-height: 1; }
