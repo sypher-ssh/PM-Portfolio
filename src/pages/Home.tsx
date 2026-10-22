@@ -61,7 +61,7 @@ function Hero() {
           <div className="hero__lead">
             <p className="hero__role t-display" data-hero-fade>{site.role}</p>
             <p className="t-lead hero__text" data-hero-fade>
-              I’ve designed and built software since 2022. My delivery app, AERRAND, is live on the App Store and Google Play,
+              I’ve designed and built software since 2022. I lead product and design at AERRAND, a delivery app live on the App Store and Google Play,
               and for the past year I’ve also led automotive production on the night shift.
             </p>
           </div>
