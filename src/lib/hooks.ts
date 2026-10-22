@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from 'react'
 import { site } from '../content/site'
 
-const DEFAULT_DESCRIPTION = 'Arnold Ihechere is a product manager and designer in Windsor, Ontario, and co-founder of AERRAND, a same-day delivery platform on the App Store and Google Play.'
+const DEFAULT_DESCRIPTION = 'Arnold Ihechere is a product manager and designer in Windsor, Ontario, and product manager and lead designer at AERRAND, a same-day delivery platform on the App Store and Google Play.'
 
 /** Sets the tab title and the page description (used by search results). */
 export function useTitle(page?: string, description?: string) {

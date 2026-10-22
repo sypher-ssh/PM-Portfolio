@@ -110,7 +110,7 @@ const panels: Panel[] = [
     summary: 'Same-day delivery for Windsor, Ontario, built around trust. Five connected surfaces for customers, Aerranders (drivers), businesses and operations.',
     facts: [
       { k: 'Status', v: 'Live on the App Store and Google Play in beta since August 2026. 2.0 in design.' },
-      { k: 'My role', v: 'Co-founder and product lead. I design and build it.' },
+      { k: 'My role', v: 'Product manager and lead designer. I lead the product, design it and build it.' },
       { k: 'Since', v: '2025' },
     ],
     cta: 'Read the AERRAND case study',

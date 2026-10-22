@@ -49,8 +49,8 @@ function Hero() {
           <p className="t-lead ah__lead" data-fade>Same-day delivery for Windsor, Ontario, built around trust. Five connected surfaces for customers, Aerranders, businesses and the team that runs it. Version 1.0 has been in beta on the App Store and Google Play since August 2026, and 2.0 is the redesign I’m leading now.</p>
           <div data-fade>
             <Facts items={[
-              ['My role', 'Co-founder and product lead. I design and build it.'],
-              ['Team', 'Co-founded with John Paul Sani and Victoria Ikpeze'],
+              ['My role', 'Product manager and lead designer. I lead the product, design it and build it.'],
+              ['Team', 'A small team, with John Paul Sani and Victoria Ikpeze'],
               ['Timeline', '2025 to now'],
               ['Platforms', 'iOS, Android and web'],
               ['Status', 'In beta on the App Store and Google Play since August 2026. Public launch next.'],
@@ -614,7 +614,7 @@ function Lesson() {
           </Head>
         </div>
         <div className="reflect__body t-lead">
-          <p>That came from a hard conversation with a potential angel investor. We went back to the drawing board and redid everything, starting with the design. That’s when AERRAND really started. Running your own startup is a different job from managing a project for someone else.</p>
+          <p>That came from a hard conversation with a potential angel investor. We went back to the drawing board and redid everything, starting with the design. That’s when AERRAND really started. Taking a product from zero to market is a different job from managing a project for someone else.</p>
           <p>Next time I’d talk to people before building: people already working in the field, and people who advise startups. Research tells you what exists. People with experience tell you what the market actually wants, and when what they say makes sense, it’s stronger validation than anything I can read.</p>
           <p>I wouldn’t undo it, though. Without that rebuild I wouldn’t have learned what I know now.</p>
         </div>

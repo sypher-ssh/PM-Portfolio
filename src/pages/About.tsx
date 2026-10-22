@@ -23,7 +23,7 @@ function Intro() {
           </figure>
         </div>
         <div className="ab-hero__grid">
-          <p className="t-lead ab-hero__lead">I’m {site.name}, a product manager and designer in {site.location}. I’ve designed and built digital products for four years, first at Right Click IT Solutions and now on my own: AERRAND, my delivery app, is live on the App Store and Google Play. For the past year I’ve also supervised automotive production on the night shift.</p>
+          <p className="t-lead ab-hero__lead">I’m {site.name}, a product manager and designer in {site.location}. I’ve designed and built digital products for four years, first at Right Click IT Solutions and now at AERRAND, a delivery app I lead product and design on, live on the App Store and Google Play. For the past year I’ve also supervised automotive production on the night shift.</p>
           <dl className="ab-hero__facts">
             <div><dt>Years designing and building software</dt><dd className="t-stencil">4</dd></div>
             <div><dt>Apps live on both stores</dt><dd className="t-stencil">2</dd></div>
@@ -39,7 +39,7 @@ function Intro() {
 const path = [
   { t: 'Engineering, 2018 to 2026', h: 'Learning how things are built', d: 'A bachelor’s in electrical and computer engineering at Afe Babalola University in Ado Ekiti, Nigeria, gave me systems thinking, problem decomposition and a working knowledge of how software behaves at the implementation level. A master’s in the same field at the University of Windsor, Ontario followed.' },
   { t: 'Design and build, 2022 to 2024', h: 'Shipping digital products', d: 'At Right Click IT Solutions, a contractor to government organizations in Nigeria, I designed and built products end to end, including enterprise resource planning (ERP) software for government bodies in the oil and gas sector. That work is confidential, so it isn’t shown here.' },
-  { t: 'Product, 2025 to now', h: 'Building my own', d: 'I co-founded AERRAND and took it from concept to two apps live on the App Store and Google Play. Now I’m leading its 2.0 redesign and shaping Brain Box, an exam-prep app for newcomers.' },
+  { t: 'Product, 2025 to now', h: 'Leading product', d: 'I lead product and design at AERRAND and took it from concept to two apps live on the App Store and Google Play. Now I’m leading its 2.0 redesign and shaping Brain Box, an exam-prep app for newcomers.' },
   { t: 'Operations, 2025 to now', h: 'A year on the production floor', d: 'Alongside the product work, I’ve supervised automotive production at Stellantis and now Peterson Spring. It sharpened how I prioritize, align people and design for real conditions.' },
 ]
 
@@ -79,7 +79,7 @@ function Path() {
 
 /* ─── Experience ─────────────────────────────────────────────────────── */
 const experience = [
-  { org: 'AERRAND', role: 'Co-founder and product lead', field: 'Local delivery, live on iOS and Android', when: '2025 to now', to: '/work/aerrand', img: aerrand.customer.home },
+  { org: 'AERRAND', role: 'Product manager and lead designer', field: 'Local delivery, live on iOS and Android', when: '2025 to now', to: '/work/aerrand', img: aerrand.customer.home },
   { org: 'Brain Box', role: 'Product manager', field: 'Exam preparation, MVP scoped', when: '2026 to now', to: '/work/brain-box', img: brainbox.home },
   { org: 'Right Click IT Solutions', role: 'Full-stack engineer and UI/UX designer', field: 'ERP software for government bodies in oil and gas, confidential', when: '2022 to 2024' },
   { org: 'Peterson Spring', role: 'Production supervisor', field: 'Automotive spring components', when: '2026 to now' },
@@ -182,7 +182,7 @@ function Capabilities() {
 }
 
 export default function About() {
-  useTitle('About', 'Arnold Ihechere has designed and built software since 2022, co-founded AERRAND, and spent the past year leading automotive production lines.')
+  useTitle('About', 'Arnold Ihechere has designed and built software since 2022, led product and design at AERRAND, and spent the past year leading automotive production lines.')
   return (
     <div className="about">
       <Intro />
