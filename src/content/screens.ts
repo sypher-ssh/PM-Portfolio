@@ -26,6 +26,14 @@ import bLearn from '../assets/brainbox/learn.webp'
 import bPractice from '../assets/brainbox/practice.webp'
 import bMock from '../assets/brainbox/mock.webp'
 import bQuestion from '../assets/brainbox/question.webp'
+import jHero from '../assets/junkcycle/d-hero.webp'
+import jServices from '../assets/junkcycle/d-services.webp'
+import jHow from '../assets/junkcycle/d-how.webp'
+import jContact from '../assets/junkcycle/d-contact.webp'
+import jmHero from '../assets/junkcycle/m-hero.webp'
+import jmServices from '../assets/junkcycle/m-services.webp'
+import jmHow from '../assets/junkcycle/m-how.webp'
+import jmWaitlist from '../assets/junkcycle/m-waitlist.webp'
 
 export const aerrand = {
   icon, admin, business,
@@ -38,4 +46,9 @@ export const aerrand = {
 export const brainbox = {
   welcome: bWelcome, plan: bPlan, needs: bNeeds, home: bHome,
   learn: bLearn, practice: bPractice, mock: bMock, question: bQuestion,
+}
+
+export const junkcycle = {
+  desktop: { hero: jHero, services: jServices, how: jHow, contact: jContact },
+  mobile: { hero: jmHero, services: jmServices, how: jmHow, waitlist: jmWaitlist },
 }

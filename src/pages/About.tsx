@@ -2,7 +2,7 @@ import { useRef } from 'react'
 import { gsap, reducedMotion, useGsap } from '../lib/motion'
 import { useTitle } from '../lib/hooks'
 import { site, SHOW_TODOS } from '../content/site'
-import { aerrand, brainbox } from '../content/screens'
+import { aerrand, brainbox, junkcycle } from '../content/screens'
 import { Link } from '../lib/router'
 import { RevealLines, ScrubWords } from '../components/text'
 import { Head, useRise } from '../components/Case'
@@ -81,6 +81,7 @@ function Path() {
 const experience = [
   { org: 'AERRAND', role: 'Product manager and lead designer', field: 'Local delivery, live on iOS and Android', when: '2025 to now', to: '/work/aerrand', img: aerrand.customer.home },
   { org: 'Brain Box', role: 'Product manager', field: 'Exam preparation, MVP scoped', when: '2026 to now', to: '/work/brain-box', img: brainbox.home },
+  { org: 'JunkCycle', role: 'Brand and web designer, freelance', field: 'Brand and launch website for a junk removal platform', when: '2025', to: '/work/junkcycle', img: junkcycle.mobile.hero },
   { org: 'Right Click IT Solutions', role: 'Full-stack engineer and UI/UX designer', field: 'ERP software for government bodies in oil and gas, confidential', when: '2022 to 2024' },
   { org: 'Peterson Spring', role: 'Production supervisor', field: 'Automotive spring components', when: '2026 to now' },
   { org: 'Stellantis', role: 'Production supervisor', field: 'Windsor Assembly Plant, 400+ vehicles a shift', when: '2025 to 2026' },

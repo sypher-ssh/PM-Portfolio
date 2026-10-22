@@ -6,6 +6,7 @@ import Contact from './pages/Contact'
 import NotFound from './pages/NotFound'
 import Aerrand from './pages/work/Aerrand'
 import BrainBox from './pages/work/BrainBox'
+import JunkCycle from './pages/work/JunkCycle'
 
 function Routes() {
   const { pathname } = useRouter()
@@ -15,6 +16,7 @@ function Routes() {
     case '/work/aerrand':
     case '/aerrand': return <Aerrand />
     case '/work/brain-box': return <BrainBox />
+    case '/work/junkcycle': return <JunkCycle />
     case '/about': return <About />
     case '/contact': return <Contact />
     default: return <NotFound />

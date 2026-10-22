@@ -44,6 +44,7 @@ export const pageLabels: Record<string, string> = {
   '/work': 'Selected work',
   '/work/aerrand': 'AERRAND',
   '/work/brain-box': 'Brain Box',
+  '/work/junkcycle': 'JunkCycle',
   '/aerrand': 'AERRAND',
   '/about': 'About',
   '/contact': 'Contact',

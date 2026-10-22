@@ -3,7 +3,7 @@ import { Link, useRouter } from '../lib/router'
 import { gsap, ScrollTrigger, SplitText, reducedMotion, scrollTo, useGsap } from '../lib/motion'
 import { useLocalTime, useTitle } from '../lib/hooks'
 import { site } from '../content/site'
-import { aerrand, brainbox } from '../content/screens'
+import { aerrand, brainbox, junkcycle } from '../content/screens'
 import { Conveyor, type ConveyorItem } from '../components/Conveyor'
 import { FitText } from '../components/FitText'
 import { IPhone } from '../components/devices'
@@ -240,6 +240,21 @@ function Work({ focus }: { focus: boolean }) {
             </div>
           </div>
         </article>
+        <Link to="/work/junkcycle" className="rc__card rc__card--jc" data-cursor="View case study" aria-labelledby="jc-title">
+          <div className="rc__copy">
+            <p className="t-label rc__k">Freelance work</p>
+            <h3 id="jc-title" className="t-display rc__title">JunkCycle</h3>
+            <p className="rc__role">Brand and web designer <span>2025</span></p>
+            <p className="rc__text">The brand and launch website for an on-demand junk removal and recycling platform. I designed the logo, type and brand guidelines, then designed and built the website.</p>
+            <ul className="rc__tags" aria-label="What the work involved">
+              <li>Brand identity</li><li>Website UX and UI</li><li>Built in React</li>
+            </ul>
+            <span className="btn btn--ink">Read the JunkCycle case study<span className="btn__icon"><ArrowUpRight /></span></span>
+          </div>
+          <div className="rc__art" aria-hidden="true">
+            <img className="rc__shot shot" src={junkcycle.desktop.hero} alt="" width={1440} height={820} loading="lazy" />
+          </div>
+        </Link>
       </div>
     </section>
   )
