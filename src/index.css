@@ -698,11 +698,6 @@ button { font: inherit; color: inherit; }
 .mini-browser__bar { display: flex; gap: .45cqw; align-items: center; height: 2.1cqw; padding: 0 .9cqw; background: #e8e4f0; }
 .mini-browser__bar i { width: .65cqw; height: .65cqw; border-radius: 50%; background: #bdb4cc; }
 .mini-browser img { display: block; width: 100%; aspect-ratio: 16 / 10.5; object-fit: cover; object-position: top left; }
-.mini-browser__web { aspect-ratio: 16 / 10.5; background: linear-gradient(160deg, #fff 0 55%, #ccaaff 55%); padding: 1.6cqw 1.8cqw; display: flex; flex-direction: column; gap: .8cqw; }
-.mini-browser__mark { font: 700 1.6cqw/1 'Josefin Sans', var(--font-sans); color: #5202d9; letter-spacing: -.02em; }
-.mini-browser__line { height: .9cqw; width: 70%; border-radius: 99px; background: #1a1a1a; opacity: .85; }
-.mini-browser__line--s { width: 46%; opacity: .25; }
-.mini-browser__field { margin-top: .4cqw; height: 2.4cqw; width: 80%; border-radius: 99px; border: 1px solid #e6e6e6; background: #f8f8f8; }
 @media (max-width: 899px) {
   .eco__stage { align-items: flex-start; padding: 84px 0 24px; }
   .eco__grid { grid-template-columns: 1fr; gap: 10px; }

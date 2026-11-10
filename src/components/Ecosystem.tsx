@@ -253,13 +253,9 @@ export function Ecosystem() {
               <span className="eco-node__label">Aerrander app<em>Aerranders</em></span>
             </div>
             <div className="eco-node eco-node--web">
-              <div className="mini-browser mini-browser--web">
+              <div className="mini-browser">
                 <div className="mini-browser__bar"><i /><i /><i /></div>
-                <div className="mini-browser__web">
-                  <span className="mini-browser__mark">aerrand</span>
-                  <span className="mini-browser__line" /><span className="mini-browser__line mini-browser__line--s" />
-                  <span className="mini-browser__field" />
-                </div>
+                <img src={aerrand.web} alt="" />
               </div>
               <span className="eco-node__label">Customer web<em>Customers</em></span>
               <span className="eco-done" aria-hidden="true">Delivered</span>

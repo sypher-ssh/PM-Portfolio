@@ -18,6 +18,7 @@ import moto from '../assets/aerrand/vehicles/moto.webp'
 import car from '../assets/aerrand/vehicles/car.webp'
 import truck from '../assets/aerrand/vehicles/truck.webp'
 import business from '../assets/aerrand/business.webp'
+import web from '../assets/aerrand/web.webp'
 import bWelcome from '../assets/brainbox/welcome.webp'
 import bPlan from '../assets/brainbox/plan.webp'
 import bNeeds from '../assets/brainbox/needs.webp'
@@ -36,7 +37,7 @@ import jmHow from '../assets/junkcycle/m-how.webp'
 import jmWaitlist from '../assets/junkcycle/m-waitlist.webp'
 
 export const aerrand = {
-  icon, admin, business,
+  icon, admin, business, web,
   customer: { home: aHome, guard: aGuard, approve: aApprove, welcome: aWelcome, send: aSend, delivered: aDelivered },
   aerrander: { home: rHome, inspect: rInspect, earnings: rEarnings, done: rDone },
   v1: { home: v1Home, aerrander: v1Aerrander },
