@@ -16,6 +16,8 @@ export type ConveyorItem = {
  * An overhead conveyor: phones hang from trolleys on a rail and travel across
  * the screen, the way parts move between stations on an assembly line.
  * Scrolling speeds the line up; hovering a phone slows it to a stop.
+ * The line can be dragged either way, or flicked: it carries on with the
+ * flick's speed, slows down naturally and settles back into its usual pace.
  * Each phone swings a little when the line changes speed.
  */
 export function Conveyor({ items, label }: { items: ConveyorItem[]; label: string }) {
@@ -44,6 +46,9 @@ export function Conveyor({ items, label }: { items: ConveyorItem[]; label: strin
 
     let offset = 0
     let speed = 0
+    let fling = 0 // px per second left over from a flick
+    let dragging = false, moved = 0, lastX = 0, lastT = 0, dragV = 0, pending = 0
+    let prevOffset = 0, prevVel = 0
     let target = 1
     let hover = false
     const angle = new Array(n).fill(0)
@@ -59,17 +64,65 @@ export function Conveyor({ items, label }: { items: ConveyorItem[]; label: strin
     const onLeave = () => { hover = false }
     carriers.forEach(c => { c.addEventListener('pointerenter', onEnter); c.addEventListener('pointerleave', onLeave) })
 
+    // Drag and flick. Vertical swipes on touch screens still scroll the page.
+    const onDown = (e: PointerEvent) => {
+      if (e.button !== 0) return
+      dragging = true; moved = 0; fling = 0; dragV = 0; pending = 0
+      lastX = e.clientX; lastT = e.timeStamp
+    }
+    const onMove = (e: PointerEvent) => {
+      if (!dragging) return
+      const dx = e.clientX - lastX
+      const dts = Math.max(e.timeStamp - lastT, 1) / 1000
+      lastX = e.clientX; lastT = e.timeStamp
+      moved += Math.abs(dx)
+      if (moved > 6) { el.classList.add('is-dragging'); if (!el.hasPointerCapture(e.pointerId)) el.setPointerCapture(e.pointerId) }
+      pending += dx
+      // Smoothed release velocity, weighted towards the latest movement.
+      dragV = dragV * 0.6 + (dx / dts) * 0.4
+    }
+    const onUp = (e: PointerEvent) => {
+      if (!dragging) return
+      dragging = false
+      el.classList.remove('is-dragging')
+      if (el.hasPointerCapture(e.pointerId)) el.releasePointerCapture(e.pointerId)
+      // A pause before letting go means no flick.
+      const still = e.timeStamp - lastT > 90
+      fling = still || e.type === 'pointercancel' ? 0 : Math.max(-4200, Math.min(4200, dragV))
+      if (moved > 6) hover = false
+    }
+    // A drag shouldn't count as a click on the phone underneath.
+    const onClick = (e: MouseEvent) => { if (moved > 6) { e.preventDefault(); e.stopPropagation(); moved = 0 } }
+    const noNativeDrag = (e: DragEvent) => e.preventDefault()
+    el.addEventListener('pointerdown', onDown)
+    el.addEventListener('pointermove', onMove)
+    el.addEventListener('pointerup', onUp)
+    el.addEventListener('pointercancel', onUp)
+    el.addEventListener('click', onClick, true)
+    el.addEventListener('dragstart', noNativeDrag)
+
     const base = () => (width < 700 ? 26 : 42) // px per second
 
     const update = (_t: number, deltaMs: number) => {
       if (!visible) return
       const dt = Math.min(deltaMs, 50) / 1000
       const v = scrollVelocity()
-      target = hover ? 0 : 1 + Math.min(Math.abs(v) * 0.22, 7) * Math.sign(v || 1)
-      const prev = speed
+      target = hover || dragging ? 0 : 1 + Math.min(Math.abs(v) * 0.22, 7) * Math.sign(v || 1)
       speed += (target - speed) * Math.min(1, dt * (hover ? 5 : 3))
-      const accel = (speed - prev) / Math.max(dt, 0.001)
       offset -= speed * base() * dt
+      if (dragging) {
+        offset += pending
+      } else if (fling) {
+        offset += fling * dt
+        fling *= Math.exp(-dt * 1.6) // friction: a hard flick coasts for a couple of seconds
+        if (Math.abs(fling) < 4) fling = 0
+      }
+      pending = 0
+
+      // How fast the line is really moving, in the units the swing uses.
+      const vel = (offset - prevOffset) / Math.max(dt, 0.001) / base()
+      const accel = Math.max(-120, Math.min(120, -(vel - prevVel) / Math.max(dt, 0.001)))
+      prevOffset = offset; prevVel = vel
 
       for (let i = 0; i < n; i++) {
         let x = (i * spacing + offset) % total
@@ -98,6 +151,12 @@ export function Conveyor({ items, label }: { items: ConveyorItem[]; label: strin
       gsap.ticker.remove(update)
       io.disconnect(); ro.disconnect()
       carriers.forEach(c => { c.removeEventListener('pointerenter', onEnter); c.removeEventListener('pointerleave', onLeave) })
+      el.removeEventListener('pointerdown', onDown)
+      el.removeEventListener('pointermove', onMove)
+      el.removeEventListener('pointerup', onUp)
+      el.removeEventListener('pointercancel', onUp)
+      el.removeEventListener('click', onClick, true)
+      el.removeEventListener('dragstart', noNativeDrag)
     }
   }, [items])
 

@@ -411,7 +411,7 @@ button { font: inherit; color: inherit; }
 @media (max-width: 860px) { .hero__intro { grid-template-columns: 1fr; gap: 28px; } .hero__meta { justify-self: start; } }
 
 /* Conveyor */
-.conveyor { --phone-w: clamp(128px, 13.6vw, 216px); position: relative; z-index: 1; height: calc(var(--phone-w) * 2.092 + 150px); margin-top: clamp(30px, 4.2vw, 64px); }
+.conveyor { --phone-w: clamp(128px, 13.6vw, 216px); touch-action: pan-y; user-select: none; -webkit-user-select: none; cursor: grab; position: relative; z-index: 1; height: calc(var(--phone-w) * 2.092 + 150px); margin-top: clamp(30px, 4.2vw, 64px); }
 .conveyor::before {
   content: ''; position: absolute; left: 0; right: 0; top: 0; height: 30px; opacity: .55;
   background: repeating-linear-gradient(90deg, transparent 0 calc(16.66% - 2px), var(--color-ink) calc(16.66% - 2px) 16.66%);
@@ -1278,3 +1278,5 @@ button { font: inherit; color: inherit; }
 .rc__shot { transform: rotateY(-10deg) rotateX(4deg); transition: transform .8s var(--ease-out-expo); }
 .rc__card--jc:hover .rc__shot { transform: rotateY(-4deg) rotateX(2deg); }
 @media (max-width: 900px) { .rc__shot { transform: none; } }
+.conveyor.is-dragging, .conveyor.is-dragging * { cursor: grabbing; }
+.conveyor img { -webkit-user-drag: none; }
