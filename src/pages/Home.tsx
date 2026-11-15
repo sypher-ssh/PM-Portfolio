@@ -220,14 +220,14 @@ function Work({ focus }: { focus: boolean }) {
             <p className="t-label rc__k">Freelance work</p>
             <h3 id="jc-title" className="t-display rc__title">JunkCycle</h3>
             <p className="rc__role">Brand and web designer <span>2025</span></p>
-            <p className="rc__text">The brand and launch website for an on-demand junk removal and recycling platform. I designed the logo, type and brand guidelines, then designed and built the website.</p>
+            <p className="rc__text">The brand and website for a reuse-first junk removal company. I designed the logo, type and brand guidelines, then designed and built the website.</p>
             <ul className="rc__tags" aria-label="What the work involved">
               <li>Brand identity</li><li>Website UX and UI</li><li>Built in React</li>
             </ul>
             <span className="btn btn--ink">Read the JunkCycle case study<span className="btn__icon"><ArrowUpRight /></span></span>
           </div>
           <div className="rc__art" aria-hidden="true">
-            <img className="rc__shot shot" src={junkcycle.desktop.hero} alt="" width={1440} height={820} loading="lazy" />
+            <img className="rc__shot shot" src={junkcycle.desktop.hero} alt="" width={1440} height={860} loading="lazy" />
           </div>
         </Link>
         <article className="rc__card" aria-labelledby="rc-title">

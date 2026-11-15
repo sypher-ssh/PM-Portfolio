@@ -19,6 +19,16 @@ import car from '../assets/aerrand/vehicles/car.webp'
 import truck from '../assets/aerrand/vehicles/truck.webp'
 import business from '../assets/aerrand/business.webp'
 import web from '../assets/aerrand/web.webp'
+import jHero from '../assets/junkcycle/d-hero.webp'
+import jBook from '../assets/junkcycle/d-book.webp'
+import jSmart from '../assets/junkcycle/d-smart.webp'
+import jPlaces from '../assets/junkcycle/d-places.webp'
+import jProof from '../assets/junkcycle/d-proof.webp'
+import jMagellan from '../assets/junkcycle/d-magellan.webp'
+import jmHero from '../assets/junkcycle/m-hero.webp'
+import jmBook from '../assets/junkcycle/m-book.webp'
+import jmSorter from '../assets/junkcycle/m-sorter.webp'
+import jmPlaces from '../assets/junkcycle/m-places.webp'
 import bWelcome from '../assets/brainbox/welcome.webp'
 import bPlan from '../assets/brainbox/plan.webp'
 import bNeeds from '../assets/brainbox/needs.webp'
@@ -27,14 +37,6 @@ import bLearn from '../assets/brainbox/learn.webp'
 import bPractice from '../assets/brainbox/practice.webp'
 import bMock from '../assets/brainbox/mock.webp'
 import bQuestion from '../assets/brainbox/question.webp'
-import jHero from '../assets/junkcycle/d-hero.webp'
-import jServices from '../assets/junkcycle/d-services.webp'
-import jHow from '../assets/junkcycle/d-how.webp'
-import jContact from '../assets/junkcycle/d-contact.webp'
-import jmHero from '../assets/junkcycle/m-hero.webp'
-import jmServices from '../assets/junkcycle/m-services.webp'
-import jmHow from '../assets/junkcycle/m-how.webp'
-import jmWaitlist from '../assets/junkcycle/m-waitlist.webp'
 
 export const aerrand = {
   icon, admin, business, web,
@@ -50,6 +52,6 @@ export const brainbox = {
 }
 
 export const junkcycle = {
-  desktop: { hero: jHero, services: jServices, how: jHow, contact: jContact },
-  mobile: { hero: jmHero, services: jmServices, how: jmHow, waitlist: jmWaitlist },
+  desktop: { hero: jHero, book: jBook, smart: jSmart, places: jPlaces, proof: jProof, magellan: jMagellan },
+  mobile: { hero: jmHero, book: jmBook, sorter: jmSorter, places: jmPlaces },
 }

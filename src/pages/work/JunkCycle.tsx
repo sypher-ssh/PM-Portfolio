@@ -37,21 +37,21 @@ function Hero() {
         </h1>
         <div className="jh__intro">
           <div data-fade>
-            <p className="t-lead jh__lead">The brand and launch website for JunkCycle, an on-demand junk removal and recycling platform from Winnipeg. Think Uber for junk: people book a pickup, and local haulers take the job.</p>
+            <p className="t-lead jh__lead">The brand and website for JunkCycle, a junk removal company from Winnipeg that sends what it picks up to reuse first and landfill last. Households book a pickup in the app. Businesses get recurring pickups with proof of where everything went.</p>
             <a href={LIVE} className="btn btn--ink jh__live" target="_blank" rel="noreferrer">Visit junkcycle.ca<span className="btn__icon"><ArrowUpRight /></span></a>
           </div>
           <div data-fade>
             <Facts items={[
               ['My role', 'Brand and web designer, freelance'],
-              ['Timeline', 'Early 2025'],
+              ['Timeline', 'First site in early 2025, redesigned in 2026'],
               ['What I made', 'Logo, logotype, typography, brand guidelines, and the website’s UX and UI'],
-              ['Built with', 'React, JavaScript, HTML and CSS. I built the site as well as designing it.'],
+              ['Built with', 'React and Next.js. I built the site as well as designing it.'],
             ]} />
           </div>
         </div>
       </div>
       <div className="wrap jh__stage">
-        <img className="jh__shot shot" src={junkcycle.desktop.hero} alt="The JunkCycle homepage: Smart Waste. Circular Solutions. Nationwide." width={1440} height={820} loading="eager" />
+        <img className="jh__shot shot" src={junkcycle.desktop.hero} alt="The JunkCycle homepage: We haul your junk and find it a second life." width={1440} height={860} loading="eager" />
       </div>
     </section>
   )
@@ -59,9 +59,9 @@ function Hero() {
 
 /* ─── The brief ──────────────────────────────────────────────────────── */
 const jobs = [
-  { t: 'Explain a new kind of service in seconds.', d: 'Most people have never booked junk removal through an app. The headline, one short line under it and a “Request a Pickup” button had to do that work before anyone scrolled.' },
-  { t: 'Speak to two audiences at once.', d: 'Customers want junk gone. Haulers want paid work. The services section gives each a clear card, and the waitlist asks which one you are.' },
-  { t: 'Grow a waitlist before launch.', d: 'The page ends in a short form: name, role, province, city and contact details, so the team knows where demand is before opening in a new area.' },
+  { t: 'Make booking feel effortless for households.', d: 'The headline says what JunkCycle does in one line, and “Book a pickup” is the first button you see. A short numbered walkthrough shows how booking works in the app, from snapping a photo to tracking the crew.' },
+  { t: 'Give businesses something they can report on.', d: 'Businesses care about schedules and paperwork. The site gives them their own path: industry pages, recurring pickups, and a sample certificate of diversion they can take to an ESG report or a procurement bid.' },
+  { t: 'Show where the junk actually goes.', d: 'Reuse first is the whole point, so the site proves it: the AI waste sorter, Cycle Green Points, a crate followed from pickup to its second life, and a real case study with Magellan Aerospace.' },
 ]
 
 function Brief() {
@@ -70,7 +70,7 @@ function Brief() {
     <section ref={ref} className="case-sec" data-chapter="brief" data-label="The brief" aria-labelledby="jb-title">
       <div className="wrap split">
         <div className="split__side">
-          <Head id="jb-title" k="The brief" title="One page, three jobs" />
+          <Head id="jb-title" k="The brief" title="One site, two audiences" />
         </div>
         <ol className="problems">
           {jobs.map(p => (
@@ -88,8 +88,8 @@ function Brief() {
 /* ─── What I did ─────────────────────────────────────────────────────── */
 const work = [
   { k: 'Brand', t: 'A mark that says pickup and recycling', d: 'The logo, logotype and typography, plus brand guidelines so the team could stay consistent. A deep green carries the sustainability story without feeling like a charity.' },
-  { k: 'Website UX and UI', t: 'A single page that answers questions in order', d: 'What it is, who it’s for, what you can do, what others say, how it works, then how to join. Numbered steps keep “How it works” easy to scan, and every section is reachable from the top menu.' },
-  { k: 'Build', t: 'Designed and built by the same person', d: 'I built the site in React, so nothing was lost between design and code. On phones the layout stacks into single cards and the menu folds away.' },
+  { k: 'Website UX and UI', t: 'A home page that splits early', d: 'Households and businesses want different things, so a simple toggle near the top lets each one follow their own story. Bold headlines, real photos and big numbers keep a long page easy to scan.' },
+  { k: 'Build', t: 'Designed and built by the same person', d: 'I built the site in React with Next.js, so nothing was lost between design and code. On phones the layout stacks into single cards and the menu folds away.' },
 ]
 
 function Work() {
@@ -114,15 +114,17 @@ function Work() {
 
 /* ─── The site ───────────────────────────────────────────────────────── */
 const sections = [
-  { src: junkcycle.desktop.services, alt: 'Services: Waste Pickup, Hauler Jobs, Material Marketplace and JunkCycle AI', cap: 'Services. One card for each audience, plus what’s coming next.', h: 1060 },
-  { src: junkcycle.desktop.how, alt: 'How it works: request a pickup, get matched, confirm details, track and complete', cap: 'How it works. Four numbered steps from request to done.', h: 880 },
-  { src: junkcycle.desktop.contact, alt: 'Contact details and the waitlist form', cap: 'Contact and waitlist. The form asks for role and location, so the team can see where demand is.', h: 915 },
+  { src: junkcycle.desktop.book, alt: 'Book in minutes: a numbered walkthrough of booking in the JunkCycle app', cap: 'Booking. Six numbered steps, from opening the app to earning Cycle Green Points.', h: 1380 },
+  { src: junkcycle.desktop.smart, alt: 'Smart enough to know what’s what: the AI waste sorter, categories, sorting order and Cycle Green Points', cap: 'The smart part. The AI waste sorter, how items get sorted, and the points you earn for greener choices.', h: 1510 },
+  { src: junkcycle.desktop.places, alt: 'Built for the places that make the most waste: industry cards for businesses', cap: 'For business. One card for each industry, each leading to its own page.', h: 1360 },
+  { src: junkcycle.desktop.proof, alt: 'Proof you can put in a report: a sample certificate of diversion', cap: 'Proof for reports. A sample certificate of diversion, so businesses can see exactly what they get.', h: 810 },
+  { src: junkcycle.desktop.magellan, alt: 'Magellan Aerospace case study: 30.8 tonnes kept out of landfill', cap: 'A real case study. Big numbers and a client quote do the convincing.', h: 920 },
 ]
 const phones = [
   { src: junkcycle.mobile.hero, alt: 'JunkCycle homepage on a phone' },
-  { src: junkcycle.mobile.services, alt: 'Services cards on a phone' },
-  { src: junkcycle.mobile.how, alt: 'How it works steps on a phone' },
-  { src: junkcycle.mobile.waitlist, alt: 'Waitlist form on a phone' },
+  { src: junkcycle.mobile.book, alt: 'Booking walkthrough on a phone' },
+  { src: junkcycle.mobile.sorter, alt: 'AI waste sorter section on a phone' },
+  { src: junkcycle.mobile.places, alt: 'Business industry cards on a phone' },
 ]
 
 function Site() {
@@ -155,7 +157,7 @@ function Site() {
 }
 
 export default function JunkCycle() {
-  useTitle('JunkCycle case study', 'JunkCycle: brand and launch website for an on-demand junk removal and recycling platform, designed and built by Arnold Ihechere.')
+  useTitle('JunkCycle case study', 'JunkCycle: brand and website for a reuse-first junk removal company, designed and built by Arnold Ihechere.')
   return (
     <div className="case case--junkcycle">
       <Hero />
