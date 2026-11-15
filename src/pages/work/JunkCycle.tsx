@@ -116,7 +116,7 @@ function Work() {
 const sections = [
   { src: junkcycle.desktop.book, alt: 'Book in minutes: a numbered walkthrough of booking in the JunkCycle app', cap: 'Booking. Six numbered steps, from opening the app to earning Cycle Green Points.', h: 1380 },
   { src: junkcycle.desktop.smart, alt: 'Smart enough to know what’s what: the AI waste sorter, categories, sorting order and Cycle Green Points', cap: 'The smart part. The AI waste sorter, how items get sorted, and the points you earn for greener choices.', h: 1510 },
-  { src: junkcycle.desktop.places, alt: 'Built for the places that make the most waste: industry cards for businesses', cap: 'For business. One card for each industry, each leading to its own page.', h: 1360 },
+  { src: junkcycle.desktop.places, alt: 'Built for the places that make the most waste: industry cards for businesses', cap: 'For business. One card for each industry, each leading to its own page.', h: 1220 },
   { src: junkcycle.desktop.magellan, alt: 'Magellan Aerospace case study: 30.8 tonnes kept out of landfill', cap: 'A real case study. Big numbers and a client quote do the convincing.', h: 920 },
 ]
 const phones = [
