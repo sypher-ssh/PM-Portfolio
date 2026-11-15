@@ -45,7 +45,7 @@ function Hero() {
               ['My role', 'Brand and web designer, freelance'],
               ['Timeline', 'First site in early 2025, redesigned in 2026'],
               ['What I made', 'Logo, logotype, typography, brand guidelines, and the website’s UX and UI'],
-              ['Built with', 'React and Next.js. I built the site as well as designing it.'],
+              ['Build', 'I built the first site myself in React. Developers built the 2026 redesign from my designs.'],
             ]} />
           </div>
         </div>
@@ -89,7 +89,7 @@ function Brief() {
 const work = [
   { k: 'Brand', t: 'A mark that says pickup and recycling', d: 'The logo, logotype and typography, plus brand guidelines so the team could stay consistent. A deep green carries the sustainability story without feeling like a charity.' },
   { k: 'Website UX and UI', t: 'A home page that splits early', d: 'Households and businesses want different things, so a simple toggle near the top lets each one follow their own story. Bold headlines, real photos and big numbers keep a long page easy to scan.' },
-  { k: 'Build', t: 'Designed and built by the same person', d: 'I built the site in React with Next.js, so nothing was lost between design and code. On phones the layout stacks into single cards and the menu folds away.' },
+  { k: 'Build and handoff', t: 'From my own code to a dev team', d: 'I built the first version of the site myself in React. For the 2026 redesign, developers built it from my designs, with desktop and phone layouts that stack into single cards on small screens.' },
 ]
 
 function Work() {
