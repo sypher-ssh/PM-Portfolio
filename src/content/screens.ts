@@ -23,7 +23,6 @@ import jHero from '../assets/junkcycle/d-hero.webp'
 import jBook from '../assets/junkcycle/d-book.webp'
 import jSmart from '../assets/junkcycle/d-smart.webp'
 import jPlaces from '../assets/junkcycle/d-places.webp'
-import jProof from '../assets/junkcycle/d-proof.webp'
 import jMagellan from '../assets/junkcycle/d-magellan.webp'
 import jmHero from '../assets/junkcycle/m-hero.webp'
 import jmBook from '../assets/junkcycle/m-book.webp'
@@ -52,6 +51,6 @@ export const brainbox = {
 }
 
 export const junkcycle = {
-  desktop: { hero: jHero, book: jBook, smart: jSmart, places: jPlaces, proof: jProof, magellan: jMagellan },
+  desktop: { hero: jHero, book: jBook, smart: jSmart, places: jPlaces, magellan: jMagellan },
   mobile: { hero: jmHero, book: jmBook, sorter: jmSorter, places: jmPlaces },
 }
