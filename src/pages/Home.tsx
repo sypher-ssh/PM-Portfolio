@@ -160,7 +160,7 @@ const panels: Panel[] = [
     id: 'aerrand', to: '/work/aerrand', name: 'AERRAND', icon: aerrand.icon, theme: 'lilac',
     summary: 'Same-day delivery for Windsor, Ontario, built around trust. Five connected surfaces for customers, Aerranders (drivers), businesses and operations.',
     facts: [
-      { k: 'Status', v: 'Live on the App Store and Google Play in beta since August 2026. 2.0 in design.' },
+      { k: 'Status', v: 'Live on the App Store and Google Play in beta since August 2026. 2.0 redesign now live.' },
       { k: 'My role', v: 'Product manager and lead designer. I lead the product, design it and build it.' },
       { k: 'Since', v: '2025' },
     ],

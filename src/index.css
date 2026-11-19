@@ -1297,3 +1297,23 @@ button { font: inherit; color: inherit; }
 .door-card__icon { position: absolute; top: 18px; right: 18px; background: var(--color-signal); color: var(--color-ink); }
 .door-card:hover, .door-card:focus-visible { background: var(--color-ink); color: var(--color-paper); }
 @media (max-width: 560px) { .doors__row { grid-template-columns: 1fr; } }
+
+/* ─── AERRAND: research stat, pilot quote and findings ──────────────── */
+.rs-stat { margin-top: clamp(28px, 3vw, 44px); padding-top: 22px; border-top: 2px solid var(--color-ink); max-width: 22em; }
+.rs-stat__n { margin: 0; font-size: clamp(72px, 8vw, 128px); line-height: .9; }
+.rs-stat__n span { font-size: .45em; opacity: .5; }
+.rs-stat__l { margin: 10px 0 0; font-size: 17px; line-height: 1.5; color: var(--color-ink-2); }
+.pl-quote { margin: clamp(8px, 1vw, 16px) 0 clamp(40px, 5vw, 72px); padding: clamp(24px, 3vw, 40px); border-radius: 26px; background: var(--color-aerrand); color: #fff; }
+.pl-quote blockquote { margin: 0; font-size: clamp(36px, 4.4vw, 72px); font-weight: 800; line-height: .98; }
+.pl-quote figcaption { margin-top: 14px; font-size: 16px; opacity: .8; }
+.findings { display: grid; }
+.finding { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(20px, 4vw, 64px); padding: 22px 0; border-top: 1px solid rgba(22,33,28,.16); font-size: 17px; line-height: 1.55; }
+.finding--head { font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--color-ink-2); padding: 0 0 12px; border-top: 0; }
+.finding__saw { color: var(--color-ink-2); }
+.finding__did { color: var(--color-ink); font-weight: 500; }
+@media (max-width: 720px) {
+  .finding { grid-template-columns: 1fr; gap: 16px; }
+  .finding--head { display: none; }
+  .finding__saw::before { content: 'What we saw'; display: block; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 4px; }
+  .finding__did::before { content: 'What we changed'; display: block; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 4px; color: var(--color-ink-2); }
+}

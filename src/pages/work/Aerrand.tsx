@@ -46,14 +46,14 @@ function Hero() {
           <FitText max={420}><span className="ah__line" aria-hidden="true">AERRAND</span></FitText>
         </h1>
         <div className="ah__intro">
-          <p className="t-lead ah__lead" data-fade>Same-day delivery for Windsor, Ontario, built around trust. Five connected surfaces for customers, Aerranders, businesses and the team that runs it. Version 1.0 has been in beta on the App Store and Google Play since August 2026, and 2.0 is the redesign I’m leading now.</p>
+          <p className="t-lead ah__lead" data-fade>Same-day delivery for Windsor, Ontario, built around trust. Five connected surfaces for customers, Aerranders, businesses and the team that runs it. In beta on the App Store and Google Play since August 2026. A pilot of 100+ deliveries showed us what to fix, and the 2.0 redesign is now live.</p>
           <div data-fade>
             <Facts items={[
               ['My role', 'Product manager and lead designer. I lead the product, design it and build it.'],
               ['Team', 'A small team, with John Paul Sani and Victoria Ikpeze'],
               ['Timeline', '2025 to now'],
               ['Platforms', 'iOS, Android and web'],
-              ['Status', 'In beta on the App Store and Google Play since August 2026. Public launch next.'],
+              ['Status', 'In beta on the App Store and Google Play since August 2026. 2.0 is live. Public launch next.'],
             ]} />
             <StoreLinks />
           </div>
@@ -91,11 +91,11 @@ function StoreLinks() {
 }
 
 /* ─── Beta so far ────────────────────────────────────────────────────── */
-const betaStats = [
+const betaStats: { n: number; plus: boolean; about?: boolean; label: string }[] = [
   { n: 100, plus: true, label: 'deliveries in the pilot' },
   { n: 100, plus: true, label: 'Aerranders signed up, with documents being reviewed' },
+  { n: 20, plus: false, label: 'Aerrand Guard deliveries in the pilot' },
   { n: 4, plus: true, label: 'businesses onboarded in the beta' },
-  { n: 10, plus: false, about: true, label: 'Aerrand Guard deliveries so far' },
 ]
 
 function Beta() {
@@ -116,6 +116,81 @@ function Beta() {
             </div>
           ))}
         </dl>
+      </div>
+    </section>
+  )
+}
+
+/* ─── Research ───────────────────────────────────────────────────────── */
+const learned = [
+  { t: 'Newcomers can’t get things home.', d: 'In their first years in Canada, a lot of people, especially immigrants and students, don’t have a car. Marketplace is full of things they need, but there’s no easy way to get them home, especially through a long, cold winter. I’ve been in Canada for two years and haven’t bought anything on Marketplace for the same reason.' },
+  { t: 'Checking an item is a wasted trip.', d: 'Going across town to see an item, only to find it isn’t what was listed, is the part people hated most. With AI-generated and edited photos, a listing can look perfect and still be wrong.' },
+  { t: 'Nobody offers a trust layer.', d: 'We looked at Uber’s courier service and other delivery apps: what they cover and what they don’t. They move the item, but none of them checks it. That gap became Aerrand Guard.' },
+  { t: 'Second-hand is growing.', d: 'More people buy used, but delivery tools are still built for stores and restaurants, not for two strangers trading on Marketplace.' },
+]
+
+function Research() {
+  const ref = useRise('.problem')
+  return (
+    <section ref={ref} className="case-sec" data-chapter="research" data-label="Research" aria-labelledby="rs-title">
+      <div className="wrap split">
+        <div className="split__side">
+          <Head id="rs-title" k="Research" title="We asked students first">
+            Before designing anything, we ran a survey for University of Windsor students, shared through student unions, student groups and engineering group chats. We asked whether they’d use a service like this and how they’d want it to work.
+          </Head>
+          <div className="rs-stat">
+            <p className="t-stencil rs-stat__n">55<span>/72</span></p>
+            <p className="rs-stat__l">students said they’d skipped buying something because they had no way to get it home.</p>
+          </div>
+        </div>
+        <ol className="problems">
+          {learned.map(p => (
+            <li key={p.t} className="problem">
+              <h3 className="problem__t">{p.t}</h3>
+              <p className="problem__d">{p.d}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+  )
+}
+
+/* ─── The pilot ──────────────────────────────────────────────────────── */
+const findings = [
+  { saw: 'About 30% of people who started booking didn’t finish. Collecting the item details and Guard checklist had stretched booking to nine separate screens.', did: 'One summary page. Pickup, drop-off and item details sit on a single screen, and tapping any of them opens it in an overlay to edit, then drops you back.' },
+  { saw: 'People couldn’t find Aerrand Guard, or tell it apart from a regular delivery. It was one tile among several.', did: 'A two-way switch at the top of Home, Aerrand or Aerrand Guard, plus short explanations across the app of what each thing does.' },
+  { saw: 'Aerranders didn’t know what to check when they picked an item up.', did: 'A Guard checklist built from what the buyer asked for, with a photo per item. Buyers who aren’t sure what to ask for get a checklist drafted by AI that they edit in a few taps.' },
+  { saw: 'The pilot was Windsor only, but an Aerrander in Brantford, two cities away, was able to accept a Windsor delivery.', did: 'Proper geofencing, so a job only goes to Aerranders who can actually reach it.' },
+  { saw: 'On the first deliveries, routing in the Aerrander app wasn’t accurate.', did: 'We rebuilt routing on the Google Maps API, set up properly this time.' },
+  { saw: 'When a job came in, Aerranders only saw a summary.', did: 'They can open the full aerrand details before deciding to accept.' },
+  { saw: 'Home showed tiles for services that weren’t ready yet.', did: 'We took them off until they launch. A button that leads nowhere costs trust.' },
+  { saw: 'Businesses send in batches, not one delivery at a time.', did: 'Businesses can book up to 10 aerrands at once.' },
+]
+
+function Pilot() {
+  const ref = useRise('.finding')
+  return (
+    <section ref={ref} className="case-sec case-sec--tint" data-chapter="pilot" data-label="The pilot" aria-labelledby="pl-title">
+      <div className="wrap">
+        <Head id="pl-title" k="The pilot" title="100+ deliveries, and what they taught us">
+          We ran a pilot in Windsor with 15 Aerranders. Every delivery was completed, about 20 of them with Aerrand Guard. The pilot also showed us exactly where 1.0 was letting people down, and each finding below became part of 2.0.
+        </Head>
+        <figure className="pl-quote">
+          <blockquote className="t-display">“I never knew how much I needed this.”</blockquote>
+          <figcaption>Jeremiah, during the pilot</figcaption>
+        </figure>
+        <div className="findings" role="table" aria-label="What we saw in the pilot and what we changed">
+          <div className="finding finding--head" role="row">
+            <span role="columnheader">What we saw</span><span role="columnheader">What we changed</span>
+          </div>
+          {findings.map(f => (
+            <div key={f.saw} className="finding" role="row">
+              <span role="cell" className="finding__saw">{f.saw}</span>
+              <span role="cell" className="finding__did">{f.did}</span>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   )
@@ -396,6 +471,7 @@ const changes = [
   { v1: 'Aerrand Guard is one of three service tiles on the home screen.', v2: 'A two-way switch at the top: Aerrand (send anything) or Aerrand Guard (inspected first).', why: 'How to send becomes the first decision, and Guard gets equal billing with regular delivery.' },
   { v1: 'Scheduling has its own service tile.', v2: 'A “Later” button sits inside the search bar.', why: 'Booking ahead becomes part of the same flow instead of a separate path.' },
   { v1: 'A static map fills the lower half of the home screen.', v2: 'Vehicle choice (scooter, moto, car, truck) and a pinned card for the aerrand in progress.', why: 'Home shows things people can act on, including a delivery that’s already moving.' },
+  { v1: 'Booking took up to nine separate screens, one detail per page.', v2: 'One summary page. Tap pickup, drop-off or the item to edit it in an overlay.', why: 'About 30% of people who started booking in the pilot didn’t finish.' },
   { v1: 'Guard opens straight into an address form.', v2: 'Guard mode explains itself in three steps and shows the CA$9.99 price up front.', why: 'People see what they get and what it costs before they commit.' },
   { v1: 'Icon-only tab bar.', v2: 'Labelled floating navigation: Home, Aerrands, Account.', why: 'Labels remove the guesswork, and “Aerrands” names the list for what it holds.' },
   { v1: 'The Aerrander app opens on a full-screen map with an online toggle.', v2: 'Busy areas, today’s earnings and a clear online state, with Earnings as its own tab.', why: 'Aerranders can decide where to go and see what a shift is worth without leaving Home.' },
@@ -430,18 +506,8 @@ function Versions() {
     <section ref={ref} className="case-sec vs" data-chapter="versions" data-label="1.0 to 2.0" aria-labelledby="vs-title">
       <div className="wrap">
         <Head id="vs-title" k="1.0 to 2.0" title="What changed, and why">
-          Most of 2.0 came straight out of the pilot and the beta. It’s a full redesign of both apps. Each pair below is the customer app beside the Aerrander app from the same version.
+          2.0 is a full redesign of both apps, built from what the pilot showed us, and it’s now live. Each pair below is the customer app beside the Aerrander app from the same version.
         </Head>
-        <div className="pilot">
-          <h3 className="pilot__title">What the pilot and beta changed</h3>
-          <ul className="pilot__list">
-            <li><b>Make the two services obvious.</b> The difference between a regular Aerrand and an Aerrand Guard delivery needed to be clearer, so the choice moved to a switch at the top of Home, where it’s the first thing people see.</li>
-            <li><b>Let AI draft the checklist.</b> Typing out what to inspect takes time. Now AI drafts the checklist and the buyer edits it in a few taps.</li>
-            <li><b>Improve the Guard map.</b> We optimized the Aerrand Guard map and fixed navigation along the way.</li>
-            <li><b>Pay vendors out properly.</b> The pilot surfaced payouts as something to get right, and we’re reworking how vendors are paid.</li>
-            <li><b>Book in bulk for businesses.</b> Businesses can now book up to 10 aerrands at once, because they send in batches, not one at a time.</li>
-          </ul>
-        </div>
         <div className="vs__switch" role="group" aria-label="Show version">
           {(['1.0', '2.0'] as const).map(x => (
             <button key={x} type="button" aria-pressed={v === x} className={v === x ? 'is-on' : ''} onClick={() => { auto.current = false; go(x) }}>
@@ -461,7 +527,7 @@ function Versions() {
               <span className="vs__scan" />
             </IPhone>
           </div>
-          <p className="vs__label" aria-live="polite"><span className="t-stencil">{v}</span>{v === '1.0' ? 'Live on the stores today' : 'The redesign in progress'}</p>
+          <p className="vs__label" aria-live="polite"><span className="t-stencil">{v}</span>{v === '1.0' ? 'Before the pilot' : 'Live now'}</p>
         </div>
         <div className="changes" role="table" aria-label="Changes from 1.0 to 2.0">
           <div className="changes__row changes__row--head" role="row">
@@ -529,6 +595,7 @@ function Decisions() {
 
 /* ─── Metrics ────────────────────────────────────────────────────────── */
 const metrics: [string, 'up' | 'down' | 'zero', string][] = [
+  ['Booking abandonment (about 30% in the pilot)', 'down', 'Customers'],
   ['“Where is my order?” contacts per 100 aerrands', 'down', 'Customers'],
   ['30-day repeat customer rate', 'up', 'Customers'],
   ['Time from request to an Aerrander accepting', 'down', 'Aerranders'],
@@ -546,8 +613,8 @@ function Metrics() {
     <section ref={ref} className="case-sec case-sec--tint metrics" data-chapter="metrics" data-label="Measuring it" aria-labelledby="met-title">
       <div className="wrap split">
         <div className="split__side">
-          <Head id="met-title" k="Measuring it" title="How we’ll know it’s working">
-            Each measure maps back to one of the problems. If AERRAND works, uncertainty goes down on every side, and it should show up here. These are the targets 2.0 is designed to move, not results.
+          <Head id="met-title" k="Measuring it" title="How we’ll know 2.0 is working">
+            Each measure maps back to one of the problems. The pilot gave us a starting point for booking: about 30% of people dropped out. Now that 2.0 is live, these are the numbers it has to move.
           </Head>
         </div>
         <ul className="metric-list">
@@ -574,7 +641,7 @@ const Dir = ({ d }: { d: 'up' | 'down' | 'zero' }) => (
 
 /* ─── Status ─────────────────────────────────────────────────────────── */
 const surfaces: [string, string, 'live' | 'built' | 'build' | 'design'][] = [
-  ['Customer app', 'Built. In beta on both stores since August 2026. 2.0 in design.', 'live'],
+  ['Customer app', 'In beta on both stores since August 2026. 2.0 is live.', 'live'],
   ['Aerrander app', 'Built. In beta on both stores, with 100+ Aerranders signed up.', 'live'],
   ['Business dashboard', 'Live. Onboarding local businesses now.', 'live'],
   ['Admin and operations', 'Live. The team uses it to run and track the platform.', 'live'],
@@ -587,7 +654,7 @@ function Status() {
     <section ref={ref} className="case-sec status" data-chapter="status" data-label="Where it stands" aria-labelledby="st-title">
       <div className="wrap">
         <Head id="st-title" k="Where it stands" title="A shipped product, not a concept">
-          Both apps, the business dashboard and the admin tools are live, with businesses onboarding now. The customer web app is in its final refinements. 2.0 redesigns the customer experience on top of what’s already running.
+          Both apps, the business dashboard and the admin tools are live, with businesses onboarding now. The customer web app is in its final refinements. The 2.0 redesign of both apps is live.
         </Head>
         <ul className="status-list">
           {surfaces.map(([s, d, k]) => (
@@ -624,11 +691,12 @@ function Lesson() {
 }
 
 export default function Aerrand() {
-  useTitle('AERRAND case study', 'How AERRAND, a same-day delivery platform for Windsor, Ontario, was designed around trust: five surfaces, Aerrand Guard, a 100+ delivery pilot and the 2.0 redesign.')
+  useTitle('AERRAND case study', 'How AERRAND, a same-day delivery platform for Windsor, Ontario, was designed around trust: five surfaces, Aerrand Guard, student research, a 100+ delivery pilot and the 2.0 redesign it led to.')
   return (
     <div className="case case--aerrand">
       <Hero />
       <Beta />
+      <Research />
       <Problem />
       <Audiences />
       <Principles />
@@ -636,6 +704,7 @@ export default function Aerrand() {
       <Journey />
       <Dashboards />
       <BuildOrder />
+      <Pilot />
       <Versions />
       <Decisions />
       <Metrics />
