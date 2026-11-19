@@ -42,8 +42,8 @@ function Hero() {
           <img src={aerrand.icon} alt="" width={48} height={48} className="ah__icon" />
           <p className="t-label">Case study: local delivery</p>
         </div>
-        <h1 id="ah-title" className="t-display ah__title" aria-label="AERRAND">
-          <FitText max={420}><span className="ah__line" aria-hidden="true">AERRAND</span></FitText>
+        <h1 id="ah-title" className="t-display ah__title" aria-label="Aerrand">
+          <FitText max={420}><span className="ah__line" aria-hidden="true">Aerrand</span></FitText>
         </h1>
         <div className="ah__intro">
           <p className="t-lead ah__lead" data-fade>Same-day delivery for Windsor, Ontario, built around trust. Five connected surfaces for customers, Aerranders, businesses and the team that runs it. In beta on the App Store and Google Play since August 2026. A pilot of 100+ deliveries showed us what to fix, and the 2.0 redesign is now live.</p>
@@ -222,7 +222,7 @@ function Problem() {
         </ol>
       </div>
       <div className="wrap insight">
-        <ScrubWords className="insight__text">The gap in the market isn’t speed. It’s trust. The big platforms have optimized for volume, speed and coverage. None of them made trust the product, and that’s the opening AERRAND is built for.</ScrubWords>
+        <ScrubWords className="insight__text">The gap in the market isn’t speed. It’s trust. The big platforms have optimized for volume, speed and coverage. None of them made trust the product, and that’s the opening Aerrand is built for.</ScrubWords>
       </div>
     </section>
   )
@@ -241,7 +241,7 @@ function Audiences() {
     <section ref={ref} className="case-sec case-sec--tint" data-chapter="audiences" data-label="Who it’s for" aria-labelledby="aud-title">
       <div className="wrap">
         <Head id="aud-title" k="Who it’s for" title="Three audiences, three different jobs">
-          Each one comes with an assumption that has to hold for AERRAND to work. Those assumptions are what the first release is built to test.
+          Each one comes with an assumption that has to hold for Aerrand to work. Those assumptions are what the first release is built to test.
         </Head>
         <div className="auds">
           {audiences.map(a => (
@@ -398,14 +398,14 @@ function Dashboards() {
     <section ref={ref} className="case-sec dash" data-chapter="dashboards" data-label="Dashboards" aria-labelledby="dash-title">
       <div className="wrap">
         <Head id="dash-title" k="Business and operations" title="The parts customers never see">
-          Businesses get a live view of every aerrand they send. The platform team gets the tools to run AERRAND without doing everything by hand.
+          Businesses get a live view of every aerrand they send. The platform team gets the tools to run Aerrand without doing everything by hand.
         </Head>
         <figure className="dash__item">
-          <div className="dash__frame"><Browser src={aerrand.business} alt="AERRAND business dashboard home: live tracking, upcoming and completed aerrands, and recent deliveries" url="business.aerrand.com" width={1600} height={1050} /></div>
+          <div className="dash__frame"><Browser src={aerrand.business} alt="Aerrand business dashboard home: live tracking, upcoming and completed aerrands, and recent deliveries" url="business.aerrand.com" width={1600} height={1050} /></div>
           <figcaption className="dash__cap"><b>Business dashboard.</b> Live tracking, upcoming and completed aerrands, and delivery history. Live now, with local businesses onboarding.</figcaption>
         </figure>
         <figure className="dash__item dash__item--laptop">
-          <div className="dash__frame"><Laptop src={aerrand.admin} alt="AERRAND admin dashboard for the platform team" /></div>
+          <div className="dash__frame"><Laptop src={aerrand.admin} alt="Aerrand admin dashboard for the platform team" /></div>
           <figcaption className="dash__cap"><b>Admin and operations.</b> Users, Aerranders, live activity and platform health in one place.</figcaption>
         </figure>
       </div>
@@ -518,11 +518,11 @@ function Versions() {
         </div>
         <div className="vs__stage">
           <div className="vs__pair">
-            <IPhone className="vs__phone" alt={v === '1.0' ? 'AERRAND 1.0 customer home with service tiles and a map' : 'AERRAND 2.0 customer home with a mode switch and vehicle choice'} src={aerrand.customer.home} statusBar={false} width="var(--vs-phone)" finish="black">
+            <IPhone className="vs__phone" alt={v === '1.0' ? 'Aerrand 1.0 customer home with service tiles and a map' : 'Aerrand 2.0 customer home with a mode switch and vehicle choice'} src={aerrand.customer.home} statusBar={false} width="var(--vs-phone)" finish="black">
               <img className="vs__old" src={aerrand.v1.home} alt="" />
               <span className="vs__scan" />
             </IPhone>
-            <IPhone className="vs__phone" alt={v === '1.0' ? 'AERRAND 1.0 Aerrander home: a full-screen map with an online toggle' : 'Aerrander app 2.0 home with busy areas and today’s numbers'} src={aerrand.aerrander.home} statusBar={false} width="var(--vs-phone)" finish="natural">
+            <IPhone className="vs__phone" alt={v === '1.0' ? 'Aerrand 1.0 Aerrander home: a full-screen map with an online toggle' : 'Aerrander app 2.0 home with busy areas and today’s numbers'} src={aerrand.aerrander.home} statusBar={false} width="var(--vs-phone)" finish="natural">
               <img className="vs__old" src={aerrand.v1.aerrander} alt="" />
               <span className="vs__scan" />
             </IPhone>
@@ -553,7 +553,7 @@ function Decisions() {
     <section ref={ref} className="case-sec decisions" data-chapter="decisions" data-label="Key decisions" aria-labelledby="dec-title">
       <div className="wrap">
         <Head id="dec-title" k="Key decisions" title="The choices you don’t see in the interface">
-          The most important product decisions are rarely visible in the final screens. These shaped how AERRAND is being built, and why.
+          The most important product decisions are rarely visible in the final screens. These shaped how Aerrand is being built, and why.
         </Head>
 
         <article className="decision decision--guard">
@@ -681,7 +681,7 @@ function Lesson() {
           </Head>
         </div>
         <div className="reflect__body t-lead">
-          <p>That came from a hard conversation with a potential angel investor. We went back to the drawing board and redid everything, starting with the design. That’s when AERRAND really started. Taking a product from zero to market is a different job from managing a project for someone else.</p>
+          <p>That came from a hard conversation with a potential angel investor. We went back to the drawing board and redid everything, starting with the design. That’s when Aerrand really started. Taking a product from zero to market is a different job from managing a project for someone else.</p>
           <p>Next time I’d talk to people before building: people already working in the field, and people who advise startups. Research tells you what exists. People with experience tell you what the market actually wants, and when what they say makes sense, it’s stronger validation than anything I can read.</p>
           <p>I wouldn’t undo it, though. Without that rebuild I wouldn’t have learned what I know now.</p>
         </div>
@@ -691,7 +691,7 @@ function Lesson() {
 }
 
 export default function Aerrand() {
-  useTitle('AERRAND case study', 'How AERRAND, a same-day delivery platform for Windsor, Ontario, was designed around trust: five surfaces, Aerrand Guard, student research, a 100+ delivery pilot and the 2.0 redesign it led to.')
+  useTitle('Aerrand case study', 'How Aerrand, a same-day delivery platform for Windsor, Ontario, was designed around trust: five surfaces, Aerrand Guard, student research, a 100+ delivery pilot and the 2.0 redesign it led to.')
   return (
     <div className="case case--aerrand">
       <Hero />
@@ -713,7 +713,7 @@ export default function Aerrand() {
       <NextCase to="/work/brain-box" name="Brain Box" theme="wine" summary="One calm, accessible app for the tests newcomers face: language, driving and citizenship.">
         <IPhone src={brainbox.home} alt="" statusBar={false} width="var(--next-phone)" finish="black" />
       </NextCase>
-      <ChapterNav title="AERRAND" />
+      <ChapterNav title="Aerrand" />
     </div>
   )
 }

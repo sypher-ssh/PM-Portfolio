@@ -4,7 +4,7 @@ import { aerrand } from '../content/screens'
 import { IPhone } from './devices'
 
 /**
- * One aerrand travelling through the AERRAND platform.
+ * One aerrand travelling through the Aerrand platform.
  * Scroll drives a single timeline: packets move along the wires between
  * five surfaces and the shared platform, the right screens change on the
  * phones, and the step list on the left follows along.
@@ -177,7 +177,7 @@ export function Ecosystem() {
           <div className="eco__copy">
             <p className="t-label eco__k">The system</p>
             <h2 id="eco-title" className="t-display eco__title">One aerrand, five surfaces</h2>
-            <p className="eco__intro">AERRAND isn’t one app. It’s five surfaces for three audiences on one shared delivery platform. Follow a single Aerrand Guard delivery through it.</p>
+            <p className="eco__intro">Aerrand isn’t one app. It’s five surfaces for three audiences on one shared delivery platform. Follow a single Aerrand Guard delivery through it.</p>
             <p className="eco__count" aria-hidden="true"><span className="t-stencil eco__count-n">1</span><span className="t-stencil eco__count-of">/5</span></p>
             <ol className="eco-steps">
               {STEPS.map(s => (

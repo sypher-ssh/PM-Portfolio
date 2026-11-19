@@ -23,11 +23,11 @@ function Intro() {
           </figure>
         </div>
         <div className="ab-hero__grid">
-          <p className="t-lead ab-hero__lead">I’m {site.name}, a product designer and product manager in {site.location}. I’ve designed and built software for four years: enterprise software at Right Click IT Solutions, and now AERRAND, a delivery app live on the App Store and Google Play, where I lead design and product. I also created the brand identity JunkCycle still uses. Alongside that, I’ve supervised automotive production on the night shift for the past year.</p>
+          <p className="t-lead ab-hero__lead">I’m {site.name}, a product designer and product manager in {site.location}. I’ve designed and built software for four years: enterprise software at Right Click IT Solutions, and now Aerrand, a delivery app live on the App Store and Google Play, where I lead design and product. I also created the brand identity JunkCycle still uses. Alongside that, I’ve supervised automotive production on the night shift for the past year.</p>
           <dl className="ab-hero__facts">
             <div><dt>Years designing and building software</dt><dd className="t-stencil">4</dd></div>
             <div><dt>Apps live on both stores</dt><dd className="t-stencil">2</dd></div>
-            <div><dt>Deliveries in the AERRAND pilot</dt><dd className="t-stencil">100+</dd></div>
+            <div><dt>Deliveries in the Aerrand pilot</dt><dd className="t-stencil">100+</dd></div>
           </dl>
         </div>
       </div>
@@ -39,7 +39,7 @@ function Intro() {
 const path = [
   { t: 'Engineering, 2018 to 2026', h: 'Learning how things are built', d: 'A bachelor’s in electrical and computer engineering at Afe Babalola University in Ado Ekiti, Nigeria, gave me systems thinking, problem decomposition and a working knowledge of how software behaves at the implementation level. A master’s in the same field at the University of Windsor, Ontario followed.' },
   { t: 'Design and build, 2022 to 2024', h: 'Designing and shipping software', d: 'At Right Click IT Solutions, a contractor to government organizations in Nigeria, I designed and built products end to end, including enterprise resource planning (ERP) software for government bodies in the oil and gas sector. That work is confidential, so it isn’t shown here.' },
-  { t: 'Design and product, 2025 to now', h: 'Leading design and product', d: 'I lead design and product at AERRAND and took it from a student survey to two apps live on the App Store and Google Play. A 100+ delivery pilot shaped the 2.0 redesign, now live. I’m also the product manager on Brain Box, an exam-prep app for newcomers.' },
+  { t: 'Design and product, 2025 to now', h: 'Leading design and product', d: 'I lead design and product at Aerrand and took it from a student survey to two apps live on the App Store and Google Play. A 100+ delivery pilot shaped the 2.0 redesign, now live. I’m also the product manager on Brain Box, an exam-prep app for newcomers.' },
   { t: 'Operations, 2025 to now', h: 'A year on the production floor', d: 'Alongside the product work, I’ve supervised automotive production at Stellantis and now Peterson Spring. It sharpened how I prioritize, align people and design for real conditions.' },
 ]
 
@@ -79,7 +79,7 @@ function Path() {
 
 /* ─── Experience ─────────────────────────────────────────────────────── */
 const experience = [
-  { org: 'AERRAND', role: 'Product manager and lead designer', field: 'Local delivery, live on iOS and Android', when: '2025 to now', to: '/work/aerrand', img: aerrand.customer.home },
+  { org: 'Aerrand', role: 'Product manager and lead designer', field: 'Local delivery, live on iOS and Android', when: '2025 to now', to: '/work/aerrand', img: aerrand.customer.home },
   { org: 'Brain Box', role: 'Product manager', field: 'Exam preparation, MVP scoped', when: '2026 to now', to: '/work/brain-box', img: brainbox.home },
   { org: 'JunkCycle', role: 'Brand and web designer, freelance', field: 'Brand identity, still in use, and the first website', when: '2025', to: '/work/junkcycle', img: junkcycle.mobile.hero },
   { org: 'Right Click IT Solutions', role: 'Full-stack engineer and UI/UX designer', field: 'ERP software for government bodies in oil and gas, confidential', when: '2022 to 2024' },
@@ -183,7 +183,7 @@ function Capabilities() {
 }
 
 export default function About() {
-  useTitle('About', 'Arnold Ihechere is a product designer and product manager who has designed and built software since 2022, leads design and product at AERRAND, and created the JunkCycle brand.')
+  useTitle('About', 'Arnold Ihechere is a product designer and product manager who has designed and built software since 2022, leads design and product at Aerrand, and created the JunkCycle brand.')
   return (
     <div className="about">
       <Intro />

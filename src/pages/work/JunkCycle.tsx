@@ -163,7 +163,7 @@ export default function JunkCycle() {
       <Brief />
       <Work />
       <Site />
-      <NextCase to="/work/aerrand" name="AERRAND" theme="lilac" summary="Same-day delivery for Windsor, Ontario, built around trust. Live on the App Store and Google Play.">
+      <NextCase to="/work/aerrand" name="Aerrand" theme="lilac" summary="Same-day delivery for Windsor, Ontario, built around trust. Live on the App Store and Google Play.">
         <IPhone src={aerrand.customer.home} alt="" statusBar={false} width="var(--next-phone)" finish="black" />
       </NextCase>
       <ChapterNav title="JunkCycle" />

@@ -11,19 +11,19 @@ import { CountUp, RevealLines, ScrubWords, useDoorOpen } from '../components/tex
 import { ArrowUpRight } from '../components/icons'
 
 const line: ConveyorItem[] = [
-  { src: aerrand.customer.home, alt: 'AERRAND customer app home screen', to: '/work/aerrand', product: 'AERRAND', screen: 'Customer app' },
+  { src: aerrand.customer.home, alt: 'Aerrand customer app home screen', to: '/work/aerrand', product: 'Aerrand', screen: 'Customer app' },
   { src: brainbox.home, alt: 'Brain Box home screen with today’s study plan', to: '/work/brain-box', product: 'Brain Box', screen: 'Daily plan', finish: 'black' },
-  { src: aerrand.aerrander.home, alt: 'Aerrander app home screen with busy areas on a map', to: '/work/aerrand', product: 'AERRAND', screen: 'Aerrander app' },
+  { src: aerrand.aerrander.home, alt: 'Aerrander app home screen with busy areas on a map', to: '/work/aerrand', product: 'Aerrand', screen: 'Aerrander app' },
   { src: brainbox.question, alt: 'Brain Box mock test question in integrity mode', to: '/work/brain-box', product: 'Brain Box', screen: 'Mock test', finish: 'black' },
-  { src: aerrand.customer.approve, alt: 'AERRAND Guard inspection waiting for approval', to: '/work/aerrand', product: 'AERRAND', screen: 'Guard inspection' },
+  { src: aerrand.customer.approve, alt: 'Aerrand Guard inspection waiting for approval', to: '/work/aerrand', product: 'Aerrand', screen: 'Guard inspection' },
   { src: brainbox.needs, alt: 'Brain Box onboarding: choose how you study best', to: '/work/brain-box', product: 'Brain Box', screen: 'Study needs', finish: 'black' },
-  { src: aerrand.aerrander.inspect, alt: 'Aerrander app checklist for inspecting an item', to: '/work/aerrand', product: 'AERRAND', screen: 'Inspect the item' },
-  { src: aerrand.customer.welcome, alt: 'AERRAND onboarding welcome screen', to: '/work/aerrand', product: 'AERRAND', screen: 'Onboarding' },
+  { src: aerrand.aerrander.inspect, alt: 'Aerrander app checklist for inspecting an item', to: '/work/aerrand', product: 'Aerrand', screen: 'Inspect the item' },
+  { src: aerrand.customer.welcome, alt: 'Aerrand onboarding welcome screen', to: '/work/aerrand', product: 'Aerrand', screen: 'Onboarding' },
 ]
 
 export type Track = 'all' | 'design' | 'product'
 
-const designLine = line.filter(i => i.product === 'AERRAND')
+const designLine = line.filter(i => i.product === 'Aerrand')
 
 /** What each front door says. '/' is neutral, /design and /product each speak to one kind of hiring manager. */
 const tracks = {
@@ -36,14 +36,14 @@ const tracks = {
   },
   design: {
     role: 'Product designer',
-    intro: 'I design web and mobile products people actually use. I’m the lead designer at AERRAND, a delivery app live on the App Store and Google Play, and I created the JunkCycle brand, which the company still uses today.',
+    intro: 'I design web and mobile products people actually use. I’m the lead designer at Aerrand, a delivery app live on the App Store and Google Play, and I created the JunkCycle brand, which the company still uses today.',
     availability: 'Open to product designer roles',
     statement: 'I’ve spent four years designing software people actually use: apps, dashboards, websites and the design systems behind them. I start with the people doing the work, cut what doesn’t matter, and hand developers designs they can build without guessing.',
     workIntro: 'A product and a brand I designed from a blank page, and the decisions behind them.',
   },
   product: {
     role: 'Product manager',
-    intro: 'I lead product at AERRAND, a delivery app live on the App Store and Google Play, from discovery and the roadmap through the pilot and beta. I’ve designed and built software since 2022, and for the past year I’ve also led automotive production on the night shift.',
+    intro: 'I lead product at Aerrand, a delivery app live on the App Store and Google Play, from discovery and the roadmap through the pilot and beta. I’ve designed and built software since 2022, and for the past year I’ve also led automotive production on the night shift.',
     availability: 'Open to product manager roles',
     statement: 'I’ve spent four years designing and building software people actually use, and the last one also leading production lines of up to 79 people. Both jobs come down to the same thing: listen to the people doing the work, cut what doesn’t matter, and ship something that holds up in real life.',
     workIntro: 'Two products I’ve taken from a blank page to people’s phones, and what I learned deciding what to build first.',
@@ -123,7 +123,7 @@ function Hero({ track }: { track: Track }) {
           </dl>
         </div>
       </div>
-      <Conveyor items={track === 'design' ? designLine : line} label={track === 'design' ? 'Screens from AERRAND moving along an overhead conveyor' : 'Screens from AERRAND and Brain Box moving along an overhead conveyor'} />
+      <Conveyor items={track === 'design' ? designLine : line} label={track === 'design' ? 'Screens from Aerrand moving along an overhead conveyor' : 'Screens from Aerrand and Brain Box moving along an overhead conveyor'} />
     </section>
   )
 }
@@ -157,16 +157,16 @@ type Panel = {
 
 const panels: Panel[] = [
   {
-    id: 'aerrand', to: '/work/aerrand', name: 'AERRAND', icon: aerrand.icon, theme: 'lilac',
+    id: 'aerrand', to: '/work/aerrand', name: 'Aerrand', icon: aerrand.icon, theme: 'lilac',
     summary: 'Same-day delivery for Windsor, Ontario, built around trust. Five connected surfaces for customers, Aerranders (drivers), businesses and operations.',
     facts: [
       { k: 'Status', v: 'Live on the App Store and Google Play in beta since August 2026. 2.0 redesign now live.' },
       { k: 'My role', v: 'Product manager and lead designer. I lead the product, design it and build it.' },
       { k: 'Since', v: '2025' },
     ],
-    cta: 'Read the AERRAND case study',
+    cta: 'Read the Aerrand case study',
     phones: [
-      { src: aerrand.customer.home, alt: 'AERRAND 2.0 customer home screen' },
+      { src: aerrand.customer.home, alt: 'Aerrand 2.0 customer home screen' },
       { src: aerrand.aerrander.home, alt: 'Aerrander 2.0 home screen, online' },
     ],
   },
@@ -358,7 +358,7 @@ const designStations = [
   { n: 1, title: 'Listen', body: 'Talk to the people who’ll use it before drawing anything: customers, drivers, business owners, and the team that supports them.' },
   { n: 2, title: 'Map', body: 'User flows, information architecture and edge cases, so every screen has a reason to exist.' },
   { n: 3, title: 'Design', body: 'Wireframes to high-fidelity UI, built on a design system so a new screen looks like it was always there.' },
-  { n: 4, title: 'Pilot', body: 'Put it in front of real people. The AERRAND pilot of 100+ deliveries reshaped the 2.0 Home screen and how businesses book.' },
+  { n: 4, title: 'Pilot', body: 'Put it in front of real people. The Aerrand pilot of 100+ deliveries reshaped the 2.0 Home screen and how businesses book.' },
   { n: 5, title: 'Hand off', body: 'Organized files, clear specs and front-end code in React and TypeScript, so what ships matches the design.' },
 ]
 
@@ -424,8 +424,8 @@ function Process({ track }: { track: Track }) {
 
 const titles: Record<Track, [string | undefined, string | undefined]> = {
   all: [undefined, undefined],
-  design: ['Product designer', 'Arnold Ihechere is a product designer in Windsor, Ontario, and lead designer at AERRAND, a same-day delivery app on the App Store and Google Play.'],
-  product: ['Product manager', 'Arnold Ihechere is a product manager in Windsor, Ontario, leading product at AERRAND, a same-day delivery app on the App Store and Google Play.'],
+  design: ['Product designer', 'Arnold Ihechere is a product designer in Windsor, Ontario, and lead designer at Aerrand, a same-day delivery app on the App Store and Google Play.'],
+  product: ['Product manager', 'Arnold Ihechere is a product manager in Windsor, Ontario, leading product at Aerrand, a same-day delivery app on the App Store and Google Play.'],
 }
 
 export default function Home({ focusWork = false, track = 'all' }: { focusWork?: boolean; track?: Track }) {

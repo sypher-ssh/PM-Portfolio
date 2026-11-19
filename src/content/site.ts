@@ -28,7 +28,7 @@ export const site = {
    */
   formEndpoint: '/api/contact',
 
-  /** AERRAND store listings. Badges appear on the case study for any link that's set. */
+  /** Aerrand store listings. Badges appear on the case study for any link that's set. */
   aerrandAppStore: 'https://apps.apple.com/ca/app/aerrand/id6784352399',
   aerrandGooglePlay: 'https://play.google.com/store/apps/details?id=com.aerrand.customer',
   aerranderAppStore: 'https://apps.apple.com/ca/app/aerrander/id6784360776',
@@ -44,10 +44,10 @@ export const pageLabels: Record<string, string> = {
   '/work': 'Selected work',
   '/design': 'Product designer',
   '/product': 'Product manager',
-  '/work/aerrand': 'AERRAND',
+  '/work/aerrand': 'Aerrand',
   '/work/brain-box': 'Brain Box',
   '/work/junkcycle': 'JunkCycle',
-  '/aerrand': 'AERRAND',
+  '/aerrand': 'Aerrand',
   '/about': 'About',
   '/contact': 'Contact',
 }

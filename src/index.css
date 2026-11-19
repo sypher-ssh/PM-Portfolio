@@ -592,7 +592,7 @@ button { font: inherit; color: inherit; }
 .split .case-head__title { font-size: clamp(48px, 5.4vw, 92px); }
 @media (max-width: 960px) { .split { grid-template-columns: 1fr; } .split__side { position: static; } }
 
-/* AERRAND world */
+/* Aerrand world */
 .case--aerrand { --case-accent: var(--color-aerrand); --case-accent-ink: #4a1aa6; }
 
 /* Hero */
@@ -1161,7 +1161,7 @@ button { font: inherit; color: inherit; }
 .floor__stats--band .stat__n { font-size: clamp(100px, 11vw, 190px); }
 @media (max-width: 860px) { .floor__band { grid-template-columns: 1fr; } .floor__stats--band { grid-template-columns: 1fr 1fr; gap: 20px; } }
 
-/* AERRAND beta results */
+/* Aerrand beta results */
 .beta { background: var(--color-ink); color: var(--color-paper); padding: clamp(72px, 8vw, 120px) 0; }
 .beta__head { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 16px 40px; align-items: end; margin-bottom: clamp(36px, 4vw, 60px); }
 .beta__k { grid-column: 1 / -1; margin: 0; color: var(--color-lilac); }
@@ -1203,7 +1203,7 @@ button { font: inherit; color: inherit; }
   .eco-node--customer .eco-node__label, .eco-node--aerrander .eco-node__label { top: calc(100% + 1cqw); }
   .eco-done { font-size: 9px; }
 }
-/* Phone: AERRAND hero devices a bit larger */
+/* Phone: Aerrand hero devices a bit larger */
 @media (max-width: 560px) {
   .ah__stage { --ah-phone: 34vw; height: 100vw; }
   .ah__laptop { width: 92vw; margin-left: -46vw; }
@@ -1298,7 +1298,7 @@ button { font: inherit; color: inherit; }
 .door-card:hover, .door-card:focus-visible { background: var(--color-ink); color: var(--color-paper); }
 @media (max-width: 560px) { .doors__row { grid-template-columns: 1fr; } }
 
-/* ─── AERRAND: research stat, pilot quote and findings ──────────────── */
+/* ─── Aerrand: research stat, pilot quote and findings ──────────────── */
 .rs-stat { margin-top: clamp(28px, 3vw, 44px); padding-top: 22px; border-top: 2px solid var(--color-ink); max-width: 22em; }
 .rs-stat__n { margin: 0; font-size: clamp(72px, 8vw, 128px); line-height: .9; }
 .rs-stat__n span { font-size: .45em; opacity: .5; }
