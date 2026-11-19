@@ -158,7 +158,7 @@ function Research() {
 
 /* ─── The pilot ──────────────────────────────────────────────────────── */
 const findings = [
-  { saw: 'About 30% of people who started booking didn’t finish. Collecting the item details and Guard checklist had stretched booking to nine separate screens.', did: 'One summary page. Pickup, drop-off and item details sit on a single screen, and tapping any of them opens it in an overlay to edit, then drops you back.' },
+  { saw: 'About 30% of people who started booking didn’t finish. We were also collecting more than before, like item details and the Guard checklist, and each new detail had its own screen.', did: 'Related details are now collected together instead of one per screen, and everything comes back to one summary page. Tapping pickup, drop-off or the item opens it in an overlay to edit, then drops you back.' },
   { saw: 'People couldn’t find Aerrand Guard, or tell it apart from a regular delivery. It was one tile among several.', did: 'A two-way switch at the top of Home, Aerrand or Aerrand Guard, plus short explanations across the app of what each thing does.' },
   { saw: 'Aerranders didn’t know what to check when they picked an item up.', did: 'A Guard checklist built from what the buyer asked for, with a photo per item. Buyers who aren’t sure what to ask for get a checklist drafted by AI that they edit in a few taps.' },
   { saw: 'The pilot was Windsor only, but an Aerrander in Brantford, two cities away, was able to accept a Windsor delivery.', did: 'Proper geofencing, so a job only goes to Aerranders who can actually reach it.' },
@@ -471,7 +471,7 @@ const changes = [
   { v1: 'Aerrand Guard is one of three service tiles on the home screen.', v2: 'A two-way switch at the top: Aerrand (send anything) or Aerrand Guard (inspected first).', why: 'How to send becomes the first decision, and Guard gets equal billing with regular delivery.' },
   { v1: 'Scheduling has its own service tile.', v2: 'A “Later” button sits inside the search bar.', why: 'Booking ahead becomes part of the same flow instead of a separate path.' },
   { v1: 'A static map fills the lower half of the home screen.', v2: 'Vehicle choice (scooter, moto, car, truck) and a pinned card for the aerrand in progress.', why: 'Home shows things people can act on, including a delivery that’s already moving.' },
-  { v1: 'Booking took up to nine separate screens, one detail per page.', v2: 'One summary page. Tap pickup, drop-off or the item to edit it in an overlay.', why: 'About 30% of people who started booking in the pilot didn’t finish.' },
+  { v1: 'Booking asked for one detail per screen, so every new detail added a screen.', v2: 'Related details collected together, with one summary page. Tap pickup, drop-off or the item to edit it in an overlay.', why: 'About 30% of people who started booking in the pilot didn’t finish.' },
   { v1: 'Guard opens straight into an address form.', v2: 'Guard mode explains itself in three steps and shows the CA$9.99 price up front.', why: 'People see what they get and what it costs before they commit.' },
   { v1: 'Icon-only tab bar.', v2: 'Labelled floating navigation: Home, Aerrands, Account.', why: 'Labels remove the guesswork, and “Aerrands” names the list for what it holds.' },
   { v1: 'The Aerrander app opens on a full-screen map with an online toggle.', v2: 'Busy areas, today’s earnings and a clear online state, with Earnings as its own tab.', why: 'Aerranders can decide where to go and see what a shift is worth without leaving Home.' },
