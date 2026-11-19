@@ -8,10 +8,10 @@ export const site = {
   name: 'Arnold Ihechere',
   firstName: 'Arnold',
   lastName: 'Ihechere',
-  role: 'Product manager and designer',
+  role: 'Product designer and product manager',
   location: 'Windsor, Ontario',
   timeZone: 'America/Toronto',
-  availability: 'Open to product manager and product designer roles',
+  availability: 'Open to product designer and product manager roles',
 
   /** Public email shown on the contact page and footer, e.g. 'arnold@example.com'. */
   email: 'chiziarnold@gmail.com',
@@ -42,6 +42,8 @@ export const SHOW_TODOS = import.meta.env.DEV || import.meta.env.VITE_SHOW_TODOS
 export const pageLabels: Record<string, string> = {
   '/': 'Home',
   '/work': 'Selected work',
+  '/design': 'Product designer',
+  '/product': 'Product manager',
   '/work/aerrand': 'AERRAND',
   '/work/brain-box': 'Brain Box',
   '/work/junkcycle': 'JunkCycle',

@@ -13,6 +13,8 @@ function Routes() {
   switch (pathname) {
     case '/': return <Home />
     case '/work': return <Home focusWork />
+    case '/design': return <Home key="design" track="design" />
+    case '/product': return <Home key="product" track="product" />
     case '/work/aerrand':
     case '/aerrand': return <Aerrand />
     case '/work/brain-box': return <BrainBox />

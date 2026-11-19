@@ -21,8 +21,60 @@ const line: ConveyorItem[] = [
   { src: aerrand.customer.welcome, alt: 'AERRAND onboarding welcome screen', to: '/work/aerrand', product: 'AERRAND', screen: 'Onboarding' },
 ]
 
+export type Track = 'all' | 'design' | 'product'
+
+const designLine = line.filter(i => i.product === 'AERRAND')
+
+/** What each front door says. '/' is neutral, /design and /product each speak to one kind of hiring manager. */
+const tracks = {
+  all: {
+    role: 'Product designer and product manager',
+    intro: '',
+    availability: 'Open to product designer and product manager roles',
+    statement: 'I’ve spent four years designing and building software people actually use. It always comes down to the same thing: listen to the people doing the work, cut what doesn’t matter, and ship something that holds up in real life.',
+    workIntro: 'Products I’ve taken from a blank page to people’s phones, and a brand that’s still in use.',
+  },
+  design: {
+    role: 'Product designer',
+    intro: 'I design web and mobile products people actually use. I’m the lead designer at AERRAND, a delivery app live on the App Store and Google Play, and I created the JunkCycle brand, which the company still uses today.',
+    availability: 'Open to product designer roles',
+    statement: 'I’ve spent four years designing software people actually use: apps, dashboards, websites and the design systems behind them. I start with the people doing the work, cut what doesn’t matter, and hand developers designs they can build without guessing.',
+    workIntro: 'A product and a brand I designed from a blank page, and the decisions behind them.',
+  },
+  product: {
+    role: 'Product manager',
+    intro: 'I lead product at AERRAND, a delivery app live on the App Store and Google Play, from discovery and the roadmap through the pilot and beta. I’ve designed and built software since 2022, and for the past year I’ve also led automotive production on the night shift.',
+    availability: 'Open to product manager roles',
+    statement: 'I’ve spent four years designing and building software people actually use, and the last one also leading production lines of up to 79 people. Both jobs come down to the same thing: listen to the people doing the work, cut what doesn’t matter, and ship something that holds up in real life.',
+    workIntro: 'Two products I’ve taken from a blank page to people’s phones, and what I learned deciding what to build first.',
+  },
+} satisfies Record<Track, { role: string; intro: string; availability: string; statement: string; workIntro: string }>
+
+/* ─── Two front doors (home page only) ──────────────────────────────── */
+function Doors() {
+  return (
+    <div className="doors" data-hero-fade>
+      <p className="t-label doors__k">What are you hiring for?</p>
+      <div className="doors__row">
+        <Link to="/design" className="door-card">
+          <span className="door-card__k">Hiring a</span>
+          <span className="door-card__t t-display">Product designer</span>
+          <span className="door-card__d">Apps, dashboards, a brand identity, and how I design.</span>
+          <span className="btn__icon door-card__icon"><ArrowUpRight /></span>
+        </Link>
+        <Link to="/product" className="door-card">
+          <span className="door-card__k">Hiring a</span>
+          <span className="door-card__t t-display">Product manager</span>
+          <span className="door-card__d">Discovery, roadmaps, a 100+ delivery pilot, and leading teams.</span>
+          <span className="btn__icon door-card__icon"><ArrowUpRight /></span>
+        </Link>
+      </div>
+    </div>
+  )
+}
+
 /* ─── Hero ───────────────────────────────────────────────────────────── */
-function Hero() {
+function Hero({ track }: { track: Track }) {
   const ref = useRef<HTMLElement>(null)
   const time = useLocalTime()
   const intro = useRef<gsap.core.Timeline | null>(null)
@@ -59,31 +111,30 @@ function Hero() {
         </h1>
         <div className="hero__intro">
           <div className="hero__lead">
-            <p className="hero__role t-display" data-hero-fade>{site.role}</p>
-            <p className="t-lead hero__text" data-hero-fade>
-              I’ve designed and built software since 2022. I lead product and design at AERRAND, a delivery app live on the App Store and Google Play,
-              and for the past year I’ve also led automotive production on the night shift.
-            </p>
+            <p className="hero__role t-display" data-hero-fade>{tracks[track].role}</p>
+            {track === 'all'
+              ? <Doors />
+              : <p className="t-lead hero__text" data-hero-fade>{tracks[track].intro}</p>}
           </div>
           <dl className="hero__meta" data-hero-fade>
             <div><dt>Based in</dt><dd>{site.location}</dd></div>
             <div><dt>Local time</dt><dd>{time}</dd></div>
-            <div><dt>Status</dt><dd><span className="status-dot" aria-hidden="true" />{site.availability}</dd></div>
+            <div><dt>Status</dt><dd><span className="status-dot" aria-hidden="true" />{tracks[track].availability}</dd></div>
           </dl>
         </div>
       </div>
-      <Conveyor items={line} label="Screens from AERRAND and Brain Box moving along an overhead conveyor" />
+      <Conveyor items={track === 'design' ? designLine : line} label={track === 'design' ? 'Screens from AERRAND moving along an overhead conveyor' : 'Screens from AERRAND and Brain Box moving along an overhead conveyor'} />
     </section>
   )
 }
 
 /* ─── Statement ──────────────────────────────────────────────────────── */
-function Statement() {
+function Statement({ track }: { track: Track }) {
   return (
     <section className="statement" aria-label="What I do">
       <div className="wrap statement__inner">
         <ScrubWords className="statement__text">
-          I’ve spent four years designing and building software people actually use, and the last one also leading production lines of up to 79 people. Both jobs come down to the same thing: listen to the people doing the work, cut what doesn’t matter, and ship something that holds up in real life.
+          {tracks[track].statement}
         </ScrubWords>
       </div>
     </section>
@@ -135,7 +186,20 @@ const panels: Panel[] = [
   },
 ]
 
-function ProjectPanel({ p, index }: { p: Panel; index: number }) {
+const aerrandRole: Record<Track, string> = {
+  all: 'Product manager and lead designer. I lead the product, design it and build it.',
+  design: 'Lead designer. I design the apps, the dashboards and the design system, and write front-end code.',
+  product: 'Product manager. I lead the product from discovery and the roadmap through the pilot and beta, and I design it too.',
+}
+
+function panelsFor(track: Track): Panel[] {
+  const list = track === 'design' ? panels.filter(p => p.id === 'aerrand') : panels
+  return list.map(p => p.id !== 'aerrand' ? p : {
+    ...p, facts: p.facts.map(f => (f.k === 'My role' ? { ...f, v: aerrandRole[track] } : f)),
+  })
+}
+
+function ProjectPanel({ p, index, total }: { p: Panel; index: number; total: number }) {
   return (
     <article className={`panel panel--${p.theme}`} data-panel={index} aria-labelledby={`panel-${p.id}`}>
       <div className="panel__inner">
@@ -143,7 +207,7 @@ function ProjectPanel({ p, index }: { p: Panel; index: number }) {
           <div className="panel__copy">
             <div className="panel__head">
               {p.icon && <img src={p.icon} alt="" width={64} height={64} className="panel__icon" />}
-              <p className="t-label panel__count">Project {index + 1} of {panels.length}</p>
+              <p className="t-label panel__count">Project {index + 1} of {total}</p>
             </div>
             <h3 id={`panel-${p.id}`} className="panel__name t-display">{p.name}</h3>
             {p.note && <p className="t-label panel__note">{p.note}</p>}
@@ -168,7 +232,8 @@ function ProjectPanel({ p, index }: { p: Panel; index: number }) {
   )
 }
 
-function Work({ focus }: { focus: boolean }) {
+function Work({ focus, track }: { focus: boolean; track: Track }) {
+  const list = panelsFor(track)
   const ref = useRef<HTMLElement>(null)
 
   useGsap(() => {
@@ -209,32 +274,32 @@ function Work({ focus }: { focus: boolean }) {
     <section ref={ref} id="work" className="work" aria-labelledby="work-title">
       <div className="wrap work__head">
         <RevealLines as="h2" id="work-title" className="t-display work__title">Selected work</RevealLines>
-        <p className="t-lead work__intro">Two products I’ve taken from a blank page to people’s phones, and what I learned deciding what to build first.</p>
+        <p className="t-lead work__intro">{tracks[track].workIntro}</p>
       </div>
       <div className="panels">
-        {panels.map((p, i) => <ProjectPanel key={p.id} p={p} index={i} />)}
+        {list.map((p, i) => <ProjectPanel key={p.id} p={p} index={i} total={list.length} />)}
       </div>
       <div className="wrap rc">
-        <Link to="/work/junkcycle" className="rc__card rc__card--jc" data-cursor="View case study" aria-labelledby="jc-title">
+        {track !== 'product' && <Link to="/work/junkcycle" className="rc__card rc__card--jc" data-cursor="View case study" aria-labelledby="jc-title">
           <div className="rc__copy">
             <p className="t-label rc__k">Freelance work</p>
             <h3 id="jc-title" className="t-display rc__title">JunkCycle</h3>
             <p className="rc__role">Brand and web designer <span>2025</span></p>
-            <p className="rc__text">The brand and website for a reuse-first junk removal company. I designed the logo, type and brand guidelines, then designed and built the website.</p>
+            <p className="rc__text">The brand identity for a reuse-first junk removal company: logo, logotype, typography and brand guidelines. The company still uses it today. I also designed and built the first website.</p>
             <ul className="rc__tags" aria-label="What the work involved">
-              <li>Brand identity</li><li>Website UX and UI</li><li>Built in React</li>
+              <li>Brand identity</li><li>Brand guidelines</li><li>Website UX and UI</li>
             </ul>
             <span className="btn btn--ink">Read the JunkCycle case study<span className="btn__icon"><ArrowUpRight /></span></span>
           </div>
           <div className="rc__art" aria-hidden="true">
             <img className="rc__shot shot" src={junkcycle.desktop.hero} alt="" width={1440} height={860} loading="lazy" />
           </div>
-        </Link>
+        </Link>}
         <article className="rc__card" aria-labelledby="rc-title">
           <div className="rc__copy">
             <p className="t-label rc__k">Company experience</p>
             <h3 id="rc-title" className="t-display rc__title">Right Click IT Solutions</h3>
-            <p className="rc__role">Full-stack engineer and UI/UX designer <span>2022 to 2024</span></p>
+            <p className="rc__role">{track === 'design' ? 'UI/UX designer and full-stack engineer' : 'Full-stack engineer and UI/UX designer'} <span>2022 to 2024</span></p>
             <p className="rc__text">An IT contractor to government organizations in Nigeria. I designed and built enterprise resource planning (ERP) software for government bodies in the oil and gas sector, from requirements and Figma prototypes through front end, backend and APIs.</p>
             <ul className="rc__tags" aria-label="What the work involved">
               <li>ERP software</li><li>Government clients</li><li>Oil and gas</li><li>Design and build</li>
@@ -289,7 +354,16 @@ const stations = [
   { n: 5, title: 'Ship', body: 'I write frontend code in React and TypeScript, so I know what’s costly, what’s quick, and how to unblock a team mid-sprint.' },
 ]
 
-function Process() {
+const designStations = [
+  { n: 1, title: 'Listen', body: 'Talk to the people who’ll use it before drawing anything: customers, drivers, business owners, and the team that supports them.' },
+  { n: 2, title: 'Map', body: 'User flows, information architecture and edge cases, so every screen has a reason to exist.' },
+  { n: 3, title: 'Design', body: 'Wireframes to high-fidelity UI, built on a design system so a new screen looks like it was always there.' },
+  { n: 4, title: 'Pilot', body: 'Put it in front of real people. The AERRAND pilot of 100+ deliveries reshaped the 2.0 Home screen and how businesses book.' },
+  { n: 5, title: 'Hand off', body: 'Organized files, clear specs and front-end code in React and TypeScript, so what ships matches the design.' },
+]
+
+function Process({ track }: { track: Track }) {
+  const steps = track === 'design' ? designStations : stations
   const ref = useRef<HTMLElement>(null)
   useGsap(() => {
     const root = ref.current!
@@ -335,7 +409,7 @@ function Process() {
           <span className="process__carrier" />
         </div>
         <ol className="stations">
-          {stations.map(s => (
+          {steps.map(s => (
             <li key={s.n} className="station">
               <span className="t-stencil station__n">{s.n}</span>
               <h3 className="t-display station__title">{s.title}</h3>
@@ -348,8 +422,14 @@ function Process() {
   )
 }
 
-export default function Home({ focusWork = false }: { focusWork?: boolean }) {
-  useTitle()
+const titles: Record<Track, [string | undefined, string | undefined]> = {
+  all: [undefined, undefined],
+  design: ['Product designer', 'Arnold Ihechere is a product designer in Windsor, Ontario, and lead designer at AERRAND, a same-day delivery app on the App Store and Google Play.'],
+  product: ['Product manager', 'Arnold Ihechere is a product manager in Windsor, Ontario, leading product at AERRAND, a same-day delivery app on the App Store and Google Play.'],
+}
+
+export default function Home({ focusWork = false, track = 'all' }: { focusWork?: boolean; track?: Track }) {
+  useTitle(...titles[track])
   const { pathname } = useRouter()
 
   // Clicking "Work" while already on the home page scrolls to the list.
@@ -367,11 +447,11 @@ export default function Home({ focusWork = false }: { focusWork?: boolean }) {
 
   return (
     <>
-      <Hero />
-      <Statement />
-      <Work focus={focusWork} />
-      <Floor />
-      <Process />
+      <Hero track={track} />
+      <Statement track={track} />
+      <Work focus={focusWork} track={track} />
+      {track === 'product' && <Floor />}
+      <Process track={track} />
     </>
   )
 }

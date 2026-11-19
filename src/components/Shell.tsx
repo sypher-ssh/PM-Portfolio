@@ -16,7 +16,8 @@ const nav = [
 /* ─── Back button ────────────────────────────────────────────────────── */
 function BackButton({ light }: { light: boolean }) {
   const { pathname, back, canGoBack } = useRouter()
-  if (pathname === '/') return null
+  // The two front doors are landing pages: no Back unless you arrived from another page.
+  if (pathname === '/' || ((pathname === '/design' || pathname === '/product') && !canGoBack)) return null
   return (
     <button type="button" onClick={() => back(parentOf(pathname))}
       className={`back ${light ? 'back--light' : ''}`}
