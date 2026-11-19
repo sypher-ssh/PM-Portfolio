@@ -23,11 +23,11 @@ function Intro() {
           </figure>
         </div>
         <div className="ab-hero__grid">
-          <p className="t-lead ab-hero__lead">I’m {site.name}, a product manager and designer in {site.location}. I’ve designed and built digital products for four years, first at Right Click IT Solutions and now at AERRAND, a delivery app I lead product and design on, live on the App Store and Google Play. For the past year I’ve also supervised automotive production on the night shift.</p>
+          <p className="t-lead ab-hero__lead">I’m {site.name}, a product designer and product manager in {site.location}. I’ve designed and built software for four years: enterprise software at Right Click IT Solutions, and now AERRAND, a delivery app live on the App Store and Google Play, where I lead design and product. I also created the brand identity JunkCycle still uses. Alongside that, I’ve supervised automotive production on the night shift for the past year.</p>
           <dl className="ab-hero__facts">
             <div><dt>Years designing and building software</dt><dd className="t-stencil">4</dd></div>
             <div><dt>Apps live on both stores</dt><dd className="t-stencil">2</dd></div>
-            <div><dt>Year supervising production</dt><dd className="t-stencil">1</dd></div>
+            <div><dt>Deliveries in the AERRAND pilot</dt><dd className="t-stencil">100+</dd></div>
           </dl>
         </div>
       </div>
@@ -38,8 +38,8 @@ function Intro() {
 /* ─── Path: four stations, in order ──────────────────────────────────── */
 const path = [
   { t: 'Engineering, 2018 to 2026', h: 'Learning how things are built', d: 'A bachelor’s in electrical and computer engineering at Afe Babalola University in Ado Ekiti, Nigeria, gave me systems thinking, problem decomposition and a working knowledge of how software behaves at the implementation level. A master’s in the same field at the University of Windsor, Ontario followed.' },
-  { t: 'Design and build, 2022 to 2024', h: 'Shipping digital products', d: 'At Right Click IT Solutions, a contractor to government organizations in Nigeria, I designed and built products end to end, including enterprise resource planning (ERP) software for government bodies in the oil and gas sector. That work is confidential, so it isn’t shown here.' },
-  { t: 'Product, 2025 to now', h: 'Leading product', d: 'I lead product and design at AERRAND and took it from concept to two apps live on the App Store and Google Play. Now I’m leading its 2.0 redesign and shaping Brain Box, an exam-prep app for newcomers.' },
+  { t: 'Design and build, 2022 to 2024', h: 'Designing and shipping software', d: 'At Right Click IT Solutions, a contractor to government organizations in Nigeria, I designed and built products end to end, including enterprise resource planning (ERP) software for government bodies in the oil and gas sector. That work is confidential, so it isn’t shown here.' },
+  { t: 'Design and product, 2025 to now', h: 'Leading design and product', d: 'I lead design and product at AERRAND and took it from a student survey to two apps live on the App Store and Google Play. A 100+ delivery pilot shaped the 2.0 redesign, now live. I’m also the product manager on Brain Box, an exam-prep app for newcomers.' },
   { t: 'Operations, 2025 to now', h: 'A year on the production floor', d: 'Alongside the product work, I’ve supervised automotive production at Stellantis and now Peterson Spring. It sharpened how I prioritize, align people and design for real conditions.' },
 ]
 
@@ -81,7 +81,7 @@ function Path() {
 const experience = [
   { org: 'AERRAND', role: 'Product manager and lead designer', field: 'Local delivery, live on iOS and Android', when: '2025 to now', to: '/work/aerrand', img: aerrand.customer.home },
   { org: 'Brain Box', role: 'Product manager', field: 'Exam preparation, MVP scoped', when: '2026 to now', to: '/work/brain-box', img: brainbox.home },
-  { org: 'JunkCycle', role: 'Brand and web designer, freelance', field: 'Brand and website for a reuse-first junk removal company', when: '2025', to: '/work/junkcycle', img: junkcycle.mobile.hero },
+  { org: 'JunkCycle', role: 'Brand and web designer, freelance', field: 'Brand identity, still in use, and the first website', when: '2025', to: '/work/junkcycle', img: junkcycle.mobile.hero },
   { org: 'Right Click IT Solutions', role: 'Full-stack engineer and UI/UX designer', field: 'ERP software for government bodies in oil and gas, confidential', when: '2022 to 2024' },
   { org: 'Peterson Spring', role: 'Production supervisor', field: 'Automotive spring components', when: '2026 to now' },
   { org: 'Stellantis', role: 'Production supervisor', field: 'Windsor Assembly Plant, 400+ vehicles a shift', when: '2025 to 2026' },
@@ -155,8 +155,8 @@ function Education() {
 
 /* ─── Capabilities ───────────────────────────────────────────────────── */
 const caps = [
-  { h: 'Decides what matters', items: ['Product strategy', 'Discovery and user research', 'Prioritization and roadmaps', 'Requirements and user stories', 'Success metrics'] },
-  { h: 'Defines how it works', items: ['Information architecture', 'Interaction and UI design', 'Design systems', 'Prototyping'] },
+  { h: 'Designs how it works', items: ['User research and surveys', 'Information architecture and flows', 'Interaction and UI design', 'Design systems', 'Brand identity', 'Prototyping'] },
+  { h: 'Decides what matters', items: ['Product strategy', 'Competitive analysis', 'Prioritization and roadmaps', 'Requirements and user stories', 'Pilots and success metrics'] },
   { h: 'Makes it real', items: ['React and TypeScript', 'Frontend builds', 'Working with engineers on scope', 'Shipping to the App Store and Google Play'] },
   { h: 'Gets it done', items: ['Leading teams of up to 79', 'Coordinating 17 team leads', 'Quality and root-cause analysis', 'Shift planning and handoffs', 'Process improvement'] },
 ]
@@ -166,7 +166,7 @@ function Capabilities() {
   return (
     <section ref={ref} className="case-sec" aria-labelledby="cap-title">
       <div className="wrap">
-        <Head id="cap-title" k="What I bring" title="Product, design, code and the floor">
+        <Head id="cap-title" k="What I bring" title="Design, product, code and the floor">
           These aren’t separate jobs to me. Each one makes the others sharper, and moving between them is what lets me be the bridge between users and the team building for them.
         </Head>
         <div className="caps">
@@ -183,12 +183,12 @@ function Capabilities() {
 }
 
 export default function About() {
-  useTitle('About', 'Arnold Ihechere has designed and built software since 2022, led product and design at AERRAND, and spent the past year leading automotive production lines.')
+  useTitle('About', 'Arnold Ihechere is a product designer and product manager who has designed and built software since 2022, leads design and product at AERRAND, and created the JunkCycle brand.')
   return (
     <div className="about">
       <Intro />
       <div className="wrap ab-scrub">
-        <ScrubWords className="insight__text">Design and code are my craft. The production floor added something I didn’t expect: the people doing the work usually know where the problem is. My job is to listen, find the root cause, cut what doesn’t matter and ship something that holds up under real conditions.</ScrubWords>
+        <ScrubWords className="insight__text">Design and code are my craft. I start with the people who’ll use the product, cut what doesn’t matter, and ship something that holds up in real life. The production floor taught me the same thing from another angle: the people doing the work usually know where the problem is.</ScrubWords>
       </div>
       <Path />
       <Experience />
