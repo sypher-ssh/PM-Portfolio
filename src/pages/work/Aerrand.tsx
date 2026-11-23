@@ -8,7 +8,7 @@ import { FitText } from '../../components/FitText'
 import { RevealLines, ScrubWords, useDoorOpen } from '../../components/text'
 import { ChapterNav, Facts, Head, NextCase, useRise } from '../../components/Case'
 import { Ecosystem } from '../../components/Ecosystem'
-import { Apple, Play } from '../../components/icons'
+import { Apple, ArrowUpRight, Play } from '../../components/icons'
 
 /* ─── Hero ───────────────────────────────────────────────────────────── */
 function Hero() {
@@ -71,9 +71,9 @@ function Hero() {
 
 function StoreLinks() {
   const apps = [
-    { name: 'Aerrand', note: 'Customer app', ios: site.aerrandAppStore, android: site.aerrandGooglePlay },
-    { name: 'Aerrander', note: 'Driver app', ios: site.aerranderAppStore, android: site.aerranderGooglePlay },
-  ].filter(a => a.ios || a.android)
+    { name: 'Aerrand', note: 'Customer app', ios: site.aerrandAppStore, android: site.aerrandGooglePlay, proto: site.aerrandPrototype },
+    { name: 'Aerrander', note: 'Driver app', ios: site.aerranderAppStore, android: site.aerranderGooglePlay, proto: site.aerranderPrototype },
+  ].filter(a => a.ios || a.android || a.proto)
   if (!apps.length) return SHOW_TODOS ? <p className="todo">Add the App Store and Google Play links in src/content/site.ts</p> : null
   return (
     <div className="stores">
@@ -83,6 +83,7 @@ function StoreLinks() {
           <div className="stores__links">
             {a.ios && <a href={a.ios} className="store" target="_blank" rel="noreferrer" aria-label={`${a.name} on the App Store`}><Apple size={17} /><span>App Store</span></a>}
             {a.android && <a href={a.android} className="store" target="_blank" rel="noreferrer" aria-label={`${a.name} on Google Play`}><Play size={16} /><span>Google Play</span></a>}
+            {a.proto && <a href={a.proto} className="store store--outline" target="_blank" rel="noreferrer" aria-label={`Click through the ${a.name} 2.0 prototype in Figma`}><span>Prototype</span><ArrowUpRight size={16} /></a>}
           </div>
         </div>
       ))}
@@ -354,7 +355,9 @@ function Journey() {
     <section ref={ref} className="journey" data-chapter="journey" data-label="Customer journey" aria-labelledby="jr-title">
       <div className="reel">
         <div className="reel__head wrap">
-          <Head id="jr-title" k="The 2.0 customer app" title="An Aerrand Guard delivery, screen by screen" />
+          <Head id="jr-title" k="The 2.0 customer app" title="An Aerrand Guard delivery, screen by screen">
+            {site.aerrandPrototype && <>Or <a className="link-u" href={site.aerrandPrototype} target="_blank" rel="noreferrer">click through the customer prototype</a> yourself.</>}
+          </Head>
           <div className="reel__progress" aria-hidden="true"><span /></div>
         </div>
         <ol className="reel__track">
@@ -372,7 +375,7 @@ function Journey() {
       <div className="strip">
         <div className="wrap strip__head">
           <h3 className="t-display strip__title">On the other side: the Aerrander app 2.0</h3>
-          <p className="strip__intro">Redesigned alongside the customer app, so both sides of every aerrand speak the same language.</p>
+          <p className="strip__intro">Redesigned alongside the customer app, so both sides of every aerrand speak the same language.{site.aerranderPrototype && <> <a className="link-u" href={site.aerranderPrototype} target="_blank" rel="noreferrer">Click through the Aerrander prototype</a>.</>}</p>
         </div>
         <div className="strip__viewport">
           <ul className="strip__track">
