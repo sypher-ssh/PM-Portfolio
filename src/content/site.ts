@@ -38,7 +38,7 @@ export const site = {
   aerrandPrototype: 'https://www.figma.com/proto/PiqpQWp18ePdNJ7sEpvHBQ/Aerrand?node-id=7656-674&starting-point-node-id=7656%3A674&page-id=7580%3A91&scaling=scale-down&content-scaling=fixed&hide-ui=1',
   aerranderPrototype: 'https://www.figma.com/proto/PiqpQWp18ePdNJ7sEpvHBQ/Aerrand?node-id=7734-540&starting-point-node-id=7734%3A540&page-id=7732%3A470&scaling=scale-down&content-scaling=fixed&hide-ui=1',
   /** Brain Box's clickable prototype, once it's deployed. Leave empty until then. */
-  brainboxPrototype: '',
+  brainboxPrototype: 'https://brainbox-study.vercel.app/',
 }
 
 /** Show the dashed "fill this in" hints. On in dev, off in production builds. */
