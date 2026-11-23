@@ -580,6 +580,9 @@ button { font: inherit; color: inherit; }
 .store:hover { transform: translateY(-2px); background: #000; }
 .store--outline { background: transparent; color: var(--color-ink); box-shadow: inset 0 0 0 1.5px var(--color-ink); }
 .store--outline:hover { background: var(--color-ink); color: var(--color-paper); }
+.store--gold { background: var(--color-gold); color: var(--color-wine); }
+.store--gold:hover { background: var(--color-cream); color: var(--color-wine); }
+.bh__proto { margin-top: 28px; }
 @media (max-width: 520px) { .stores { grid-template-columns: 1fr; } }
 
 .case-sec { position: relative; padding: clamp(96px, 11vw, 180px) 0; }

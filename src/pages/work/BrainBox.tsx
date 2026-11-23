@@ -44,7 +44,7 @@ function Hero() {
           <div data-fade>
             <p className="t-lead bh__lead">One app for the Ontario G1, the G2 road test and CELPIP, built to work for every kind of learner. Practise in the real format, get feedback, then fix the weak spot.</p>
             <p className="bh__note">Brain Box is a working name.</p>
-            {site.brainboxPrototype && <div className="stores__links"><a className="store store--outline" href={site.brainboxPrototype} target="_blank" rel="noreferrer"><span>Try the prototype</span><ArrowUpRight size={16} /></a></div>}
+            {site.brainboxPrototype && <div className="stores__links bh__proto"><a className="store store--gold" href={site.brainboxPrototype} target="_blank" rel="noreferrer"><span>Try the prototype</span><ArrowUpRight size={16} /></a></div>}
           </div>
           <div data-fade>
             <Facts items={[
