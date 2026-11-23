@@ -6,6 +6,8 @@ import { IPhone } from '../../components/devices'
 import { FitText } from '../../components/FitText'
 import { ScrubWords, useDoorOpen } from '../../components/text'
 import { ChapterNav, Facts, Head, NextCase, useRise } from '../../components/Case'
+import { site } from '../../content/site'
+import { ArrowUpRight } from '../../components/icons'
 
 /* ─── Hero ───────────────────────────────────────────────────────────── */
 function Hero() {
@@ -42,13 +44,14 @@ function Hero() {
           <div data-fade>
             <p className="t-lead bh__lead">One calm, accessible app for the tests that move a newcomer’s life forward: language, driving and citizenship. Mock exams feel like the real thing because you can’t cheat on them.</p>
             <p className="bh__note">Brain Box is a working name.</p>
+            {site.brainboxPrototype && <div className="stores__links"><a className="store store--outline" href={site.brainboxPrototype} target="_blank" rel="noreferrer"><span>Try the prototype</span><ArrowUpRight size={16} /></a></div>}
           </div>
           <div data-fade>
             <Facts items={[
               ['My role', 'Product designer'],
               ['Timeline', '2026 to now'],
-              ['Launch exams', 'CELPIP and the Ontario G1'],
-              ['Status', 'MVP scoped. Interactive prototype built.'],
+              ['Exams built', 'Ontario G1, G2 road test and CELPIP'],
+              ['Status', 'All three modules built. Pre-launch, with reviews and testing still to do.'],
             ]} />
           </div>
         </div>
@@ -143,7 +146,7 @@ function Wedge() {
     <section ref={ref} className="case-sec wedge" data-chapter="wedge" data-label="Where to start" aria-labelledby="bw-title">
       <div className="wrap">
         <Head id="bw-title" k="Where to start" title="One free test, and one that’s worth paying for">
-          The launch pairs the Ontario G1 test, offered free, with CELPIP, offered paid. Both run on the same engine, so every exam added later reuses what’s already built.
+          The launch pairs the Ontario G1 test, free, with the G2 road test and CELPIP as paid passes. All three run on the same engine, so every exam added later reuses what’s already built.
         </Head>
         <div className="wedge__art">
           <div className="tickets">
@@ -174,9 +177,39 @@ function Wedge() {
   )
 }
 
+/* ─── Modules: what's built ──────────────────────────────────────────── */
+const modules = [
+  { when: 'Ontario G1 · Free', who: 'The written knowledge test', about: 'It started as 47 signs drawn from memory, which I rated 5 out of 10. Now it has 121 signs redrawn against the MTO handbook, 249 original questions, a 7-unit course and a mock that marks the way the real test does.', facts: [['Pass rule', '16 of 20 needed on each section'], ['Flashcards', '246, with sign pictures and spaced repetition'], ['Self-rated', '9 out of 10, waiting on instructor review and a real phone test']] as [string, string][] },
+  { when: 'G2 road test · Paid pass', who: 'The practice drive', about: 'It started as a study course with the drive buried as one tile, so the passenger faced 58 items at once. Now the phone runs the drive out loud in road order, and the passenger marks it only at natural stops.', facts: [['Instructions', '19 in 7 sections, in road order'], ['Score sheet', '88 items from the MTO handbook, plus approved driving-school additions'], ['Fact checks', '34 claims checked, 10 partly checked, 1 still open']] as [string, string][] },
+  { when: 'CELPIP · Paid pass', who: 'All four skills, with AI feedback', about: 'It started as one reading unit and two speaking tasks, which I rated 2 out of 10. Now it covers all four skills in the real format, with a full 3-hour practice test and AI marking for writing and speaking.', facts: [['Content', '114 reading and 114 listening questions, 20 writing and 32 speaking prompts'], ['Vocabulary', '127 cards with examples, audio and a Type it mode'], ['Scores', 'A likely CLB range, with a test-day note']] as [string, string][] },
+]
+
+function Modules() {
+  const ref = useRise('.bb-aud')
+  return (
+    <section ref={ref} className="case-sec" data-chapter="modules" data-label="What’s built" aria-labelledby="bmod-title">
+      <div className="wrap">
+        <Head id="bmod-title" k="What’s built" title="Three modules, one engine">
+          The loop comes from how I passed CELPIP myself, with 13, 13, 11 and 12: practise every section, get feedback, then fix the weak spot. Every module follows it, and each one started smaller than it is now.
+        </Head>
+        <div className="bb-auds">
+          {modules.map(m => (
+            <article key={m.who} className="bb-aud">
+              <p className="t-label bb-aud__when">{m.when}</p>
+              <h3 className="t-display bb-aud__who">{m.who}</h3>
+              <p className="bb-aud__about">{m.about}</p>
+              <Facts items={m.facts} className="facts--stack" />
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
 /* ─── Onboarding: a sticky phone with scroll-swapped screens ─────────── */
 const setup = [
-  { src: brainbox.welcome, t: 'Pick the exams that matter', d: 'CELPIP, the G1 driving test and the citizenship test sit side by side from the first screen.' },
+  { src: brainbox.welcome, t: 'Pick the exams that matter', d: 'CELPIP and the G1 and G2 driving tests sit side by side from the first screen.' },
   { src: brainbox.plan, t: 'Set a date, get a plan', d: 'The test date and target score turn into a countdown and a daily plan: about 30 minutes a day, with a full mock every weekend.' },
   { src: brainbox.needs, t: 'Say how you study best', d: 'Focus mode, reading support and calm mode are chosen during setup, not buried in settings.' },
   { src: brainbox.home, t: 'Open the app to one clear task', d: 'Home leads with today’s lesson and how much is left, then the rest of the plan.' },
@@ -346,17 +379,46 @@ function Access() {
   )
 }
 
+/* ─── How it was built ───────────────────────────────────────────────── */
+const directed = [
+  { t: 'I tested it the way a passenger or test-taker would', d: 'The G2 practice drive was buried as one tile, and taps were allowed while the car was moving. It became a drive in road order, marked only at natural stops. In CELPIP, the speaker button couldn’t be stopped and one voice read every speaker. Both were fixed.' },
+  { t: 'I checked the content, not just the copy', d: 'I asked about one road sign, and it turned out to be made up, so it was removed with its question. Every G2 claim was checked against the handbook, and CELPIP sources were read before anything was used.' },
+  { t: 'I made the cues short and action-first', d: 'Anything a driver hears while moving got shorter. “Check seat and mirrors” replaced wordy lines, “go straight through” became “go straight when it’s safe”, and an “Up next” screen fixed cues that were read too early.' },
+  { t: 'I set the limits early', d: 'Every question and passage is original, with no official artwork or scraped material. No API key ships in the app. Scores are shown as ranges, never as a promise.' },
+]
+
+function Directed() {
+  const ref = useRise('.bb-dec')
+  return (
+    <section ref={ref} className="case-sec case-sec--tint bb-directed" data-chapter="directed" data-label="How it was built" aria-labelledby="bdir-title">
+      <div className="wrap">
+        <Head id="bdir-title" k="How it was built" title="I owned the direction, not the code">
+          I didn’t write the code. I owned the product: what got built, what was wrong with it, and what was allowed.
+        </Head>
+        <div className="bb-decs">
+          {directed.map(d => (
+            <article key={d.t} className="bb-dec">
+              <h3 className="bb-dec__t">{d.t}</h3>
+              <p className="bb-dec__d">{d.d}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
 /* ─── Features ───────────────────────────────────────────────────────── */
 const features = [
   ['Onboarding and study plan', 'Pick an exam and a test date to get a plan and countdown. Choose accessibility needs up front, then a short diagnostic sets the starting level.'],
-  ['Learning content', 'Bite-sized lessons for each exam section, a summarized G1 handbook, and curated videos for each topic.'],
+  ['Learning content', 'Short lessons and skill cards for each exam. Questions and facts are checked against the official handbook and sources before they go in.'],
   ['Flashcards', 'Spaced repetition so weak cards come back more often, plus streaks, timed rounds and match-the-pairs.'],
   ['Practice and mock exams', 'Topic quizzes and full-length timed mocks that mirror the real format, with explanations and a readiness score.'],
   ['Integrity mode', 'Leaving the app during a full mock is detected and costs marks. A report shows any time away.'],
   ['Voice AI', 'Spoken quizzing, and CELPIP Speaking mocks graded on fluency, vocabulary and structure, with a full transcript.'],
-  ['Focus sessions', 'A Pomodoro-style timer with focus lockdown, XP, badges, unlockable themes and daily streaks.'],
+  ['Focus sessions', 'A focus timer with focus sounds and a focus lock, plus match and speed-round games.'],
   ['Accessibility modes', 'Dyslexia-friendly type and spacing, ADHD and calm modes, focus sounds, text-to-speech and reduced motion.'],
-  ['Study buddies', 'Pair up for the same exam with a shared countdown and streak. Scores are private by default, with a cooperative-only mode.'],
+  ['Competitive mode', 'Friend call-outs, daily duels, a weekly leaderboard and a head-to-head scoreboard for each friend. Competition is always optional.'],
 ]
 
 function Features() {
@@ -391,8 +453,8 @@ function Features() {
 
 /* ─── Roadmap ────────────────────────────────────────────────────────── */
 const roadmap = [
-  { t: 'MVP', h: 'Prove the engine on two exams', items: ['CELPIP and Ontario G1', 'All core features above', 'Integrity mode and voice AI speaking mocks'], why: 'Prove the engine and the differentiators on two exams before spreading thin.' },
-  { t: 'Phase 2', h: 'More exams, deeper features', items: ['IELTS General, TEF and TCF Canada, the citizenship test', 'Upload your own material', 'AI-graded writing and head-to-head duels', 'A multilingual interface'], why: 'Reuse the same engine for more exams, and add features that need more content or users.' },
+  { t: 'MVP', h: 'Prove the engine on the first exams', items: ['Ontario G1, G2 road test and CELPIP, all built', 'Accounts, friends and competitive mode, built', 'Web launch first, then the app stores', 'Reviews by a CELPIP teacher and a licensed instructor'], why: 'Prove the engine and the differentiators on three modules before spreading thin.' },
+  { t: 'Phase 2', h: 'More exams, deeper features', items: ['IELTS General, TEF and TCF Canada, the citizenship test', 'Upload your own material', 'AI-graded writing for more exams', 'A multilingual interface'], why: 'Reuse the same engine for more exams, and add features that need more content or users.' },
   { t: 'Later', h: 'Beyond newcomer exams', items: ['Academic mode and institutions', 'A learning feed and community library', 'UK and European exams, professional certifications'], why: 'These build on a proven product and an existing user base.' },
 ]
 
@@ -498,8 +560,9 @@ function Metrics() {
           <h3 className="t-display bb-status__title">Where it stands</h3>
           <Facts items={[
             ['Feature scope and roadmap', 'Defined: MVP, Phase 2 and later'],
-            ['Business model', 'Defined: subscription, exam pass, AI credits, and licences for institutions'],
-            ['Interactive prototype', 'Built: onboarding, the daily study home and integrity-mode mock tests'],
+            ['Business model', 'Defined: G1 free, G2 and CELPIP as paid passes, with a web launch before the app stores'],
+            ['Built', 'G1, G2 road test and CELPIP modules, competitive mode, accounts and a web build'],
+            ['Before launch', 'Expert content reviews, natural voice recordings, the AI marking server, real-phone testing and payments'],
           ]} />
         </div>
       </div>
@@ -508,7 +571,7 @@ function Metrics() {
 }
 
 export default function BrainBox() {
-  useTitle('Brain Box case study', 'Brain Box: an accessible exam-prep app for newcomers, with integrity-mode mock tests for CELPIP and the Ontario G1.')
+  useTitle('Brain Box case study', 'Brain Box: an accessible exam-prep app for newcomers, with integrity-mode mock tests for the Ontario G1, G2 road test and CELPIP.')
   return (
     <div className="case case--brainbox">
       <Hero />
@@ -518,9 +581,11 @@ export default function BrainBox() {
       </div>
       <Audiences />
       <Wedge />
+      <Modules />
       <Setup />
       <Integrity />
       <Access />
+      <Directed />
       <Features />
       <Roadmap />
       <Decisions />
