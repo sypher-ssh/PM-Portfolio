@@ -23,7 +23,6 @@ const line: ConveyorItem[] = [
 
 export type Track = 'all' | 'design' | 'product'
 
-const designLine = line.filter(i => i.product === 'Aerrand')
 
 /** What each front door says. '/' is neutral, /design and /product each speak to one kind of hiring manager. */
 const tracks = {
@@ -123,7 +122,7 @@ function Hero({ track }: { track: Track }) {
           </dl>
         </div>
       </div>
-      <Conveyor items={track === 'design' ? designLine : line} label={track === 'design' ? 'Screens from Aerrand moving along an overhead conveyor' : 'Screens from Aerrand and Brain Box moving along an overhead conveyor'} />
+      <Conveyor items={line} label="Screens from Aerrand and Brain Box moving along an overhead conveyor" />
     </section>
   )
 }
@@ -175,7 +174,7 @@ const panels: Panel[] = [
     summary: 'One calm, accessible app for the tests newcomers face: language, driving and citizenship. Mock exams feel like the real thing because you can’t cheat on them.',
     facts: [
       { k: 'Status', v: 'MVP scoped. Interactive prototype built.' },
-      { k: 'My role', v: 'Product manager.' },
+      { k: 'My role', v: 'Product designer.' },
       { k: 'Since', v: '2026' },
     ],
     cta: 'Read the Brain Box case study',
@@ -193,7 +192,7 @@ const aerrandRole: Record<Track, string> = {
 }
 
 function panelsFor(track: Track): Panel[] {
-  const list = track === 'design' ? panels.filter(p => p.id === 'aerrand') : panels
+  const list = panels
   return list.map(p => p.id !== 'aerrand' ? p : {
     ...p, facts: p.facts.map(f => (f.k === 'My role' ? { ...f, v: aerrandRole[track] } : f)),
   })

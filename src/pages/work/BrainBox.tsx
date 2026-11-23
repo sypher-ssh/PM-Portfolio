@@ -45,7 +45,7 @@ function Hero() {
           </div>
           <div data-fade>
             <Facts items={[
-              ['My role', 'Product manager'],
+              ['My role', 'Product designer'],
               ['Timeline', '2026 to now'],
               ['Launch exams', 'CELPIP and the Ontario G1'],
               ['Status', 'MVP scoped. Interactive prototype built.'],
