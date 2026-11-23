@@ -299,12 +299,12 @@ function Work({ focus, track }: { focus: boolean; track: Track }) {
           <div className="rc__copy">
             <p className="t-label rc__k">Company experience</p>
             <h3 id="rc-title" className="t-display rc__title">Right Click IT Solutions</h3>
-            <p className="rc__role">{track === 'design' ? 'UI/UX designer and full-stack engineer' : 'Full-stack engineer and UI/UX designer'} <span>2022 to 2024</span></p>
-            <p className="rc__text">An IT contractor to government organizations in Nigeria. I designed and built enterprise resource planning (ERP) software for government bodies in the oil and gas sector, from requirements and Figma prototypes through front end, backend and APIs.</p>
+            <p className="rc__role">Design engineer <span>2022 to 2024</span></p>
+            <p className="rc__text">An IT contractor to government and oil and gas organizations in Nigeria. I worked on the brand redesign for NNPC Ltd, Nigeria’s national oil company, including its new logo and identity. I also redesigned ERP software for NNPC and NUPRC, the upstream regulator, covering offshore work like rig management, and built it from Figma prototypes through front end, backend and APIs.</p>
             <ul className="rc__tags" aria-label="What the work involved">
-              <li>ERP software</li><li>Government clients</li><li>Oil and gas</li><li>Design and build</li>
+              <li>Brand identity</li><li>ERP software</li><li>Oil and gas</li><li>Design and build</li>
             </ul>
-            <p className="rc__nda">The client work is confidential, so it isn’t shown here. <Link to="/contact" className="link-u">Ask me about the process</Link></p>
+            <p className="rc__nda">The screens belong to the clients, so they aren’t shown here. <Link to="/contact" className="link-u">Ask me about the process</Link></p>
           </div>
           <div className="rc__art" aria-hidden="true">
             <div className="rc__win">
@@ -316,7 +316,6 @@ function Work({ focus, track }: { focus: boolean; track: Track }) {
                   <div className="rc__rows">{[0, 1, 2, 3, 4].map(i => <span key={i}><b /><b /><b /></span>)}</div>
                 </div>
               </div>
-              <span className="rc__stamp">Confidential</span>
             </div>
           </div>
         </article>
