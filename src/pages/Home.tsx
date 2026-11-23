@@ -36,7 +36,7 @@ const tracks = {
   },
   design: {
     role: 'Product designer',
-    intro: 'I design web and mobile products people actually use. I’m the lead designer at Aerrand, a delivery app live on the App Store and Google Play, and I created the JunkCycle brand, which the company still uses today.',
+    intro: 'I design web and mobile products people actually use. I’m the product designer at Aerrand, a delivery app live on the App Store and Google Play, and I created the JunkCycle brand, which the company still uses today.',
     availability: 'Open to product designer roles',
     statement: 'I’ve spent four years designing software people actually use: apps, dashboards, websites and the design systems behind them. I start with the people doing the work, cut what doesn’t matter, and hand developers designs they can build without guessing.',
     workIntro: 'A product and a brand I designed from a blank page, and the decisions behind them.',
@@ -161,7 +161,7 @@ const panels: Panel[] = [
     summary: 'Same-day delivery for Windsor, Ontario, built around trust. Five connected surfaces for customers, Aerranders (drivers), businesses and operations.',
     facts: [
       { k: 'Status', v: 'Live on the App Store and Google Play in beta since August 2026. 2.0 redesign now live.' },
-      { k: 'My role', v: 'Product manager and lead designer. I lead the product, design it and build it.' },
+      { k: 'My role', v: 'Product manager and product designer. I lead the product, design it and build it.' },
       { k: 'Since', v: '2025' },
     ],
     cta: 'Read the Aerrand case study',
@@ -187,8 +187,8 @@ const panels: Panel[] = [
 ]
 
 const aerrandRole: Record<Track, string> = {
-  all: 'Product manager and lead designer. I lead the product, design it and build it.',
-  design: 'Lead designer. I design the apps, the dashboards and the design system, and write front-end code.',
+  all: 'Product manager and product designer. I lead the product, design it and build it.',
+  design: 'Product designer. I design the apps, the dashboards and the design system, and write front-end code.',
   product: 'Product manager. I lead the product from discovery and the roadmap through the pilot and beta, and I design it too.',
 }
 
@@ -424,7 +424,7 @@ function Process({ track }: { track: Track }) {
 
 const titles: Record<Track, [string | undefined, string | undefined]> = {
   all: [undefined, undefined],
-  design: ['Product designer', 'Arnold Ihechere is a product designer in Windsor, Ontario, and lead designer at Aerrand, a same-day delivery app on the App Store and Google Play.'],
+  design: ['Product designer', 'Arnold Ihechere is a product designer in Windsor, Ontario, and the product designer at Aerrand, a same-day delivery app on the App Store and Google Play.'],
   product: ['Product manager', 'Arnold Ihechere is a product manager in Windsor, Ontario, leading product at Aerrand, a same-day delivery app on the App Store and Google Play.'],
 }
 

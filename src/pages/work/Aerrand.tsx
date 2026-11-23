@@ -49,7 +49,7 @@ function Hero() {
           <p className="t-lead ah__lead" data-fade>Same-day delivery for Windsor, Ontario, built around trust. Five connected surfaces for customers, Aerranders, businesses and the team that runs it. In beta on the App Store and Google Play since August 2026. A pilot of 100+ deliveries showed us what to fix, and the 2.0 redesign is now live.</p>
           <div data-fade>
             <Facts items={[
-              ['My role', 'Product manager and lead designer. I lead the product, design it and build it.'],
+              ['My role', 'Product manager and product designer. I lead the product, design it and build it.'],
               ['Team', 'A small team, with John Paul Sani and Victoria Ikpeze'],
               ['Timeline', '2025 to now'],
               ['Platforms', 'iOS, Android and web'],

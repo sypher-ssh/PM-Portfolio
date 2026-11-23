@@ -79,7 +79,7 @@ function Path() {
 
 /* ─── Experience ─────────────────────────────────────────────────────── */
 const experience = [
-  { org: 'Aerrand', role: 'Product manager and lead designer', field: 'Local delivery, live on iOS and Android', when: '2025 to now', to: '/work/aerrand', img: aerrand.customer.home },
+  { org: 'Aerrand', role: 'Product manager and product designer', field: 'Local delivery, live on iOS and Android', when: '2025 to now', to: '/work/aerrand', img: aerrand.customer.home },
   { org: 'Brain Box', role: 'Product manager', field: 'Exam preparation, MVP scoped', when: '2026 to now', to: '/work/brain-box', img: brainbox.home },
   { org: 'JunkCycle', role: 'Brand and web designer, freelance', field: 'Brand identity, still in use, and the first website', when: '2025', to: '/work/junkcycle', img: junkcycle.mobile.hero },
   { org: 'Right Click IT Solutions', role: 'Full-stack engineer and UI/UX designer', field: 'ERP software for government bodies in oil and gas, confidential', when: '2022 to 2024' },
