@@ -39,7 +39,7 @@ function Intro() {
 const path = [
   { t: 'Engineering, 2018 to 2026', h: 'Learning how things are built', d: 'A bachelor’s in electrical and computer engineering at Afe Babalola University in Ado Ekiti, Nigeria, gave me systems thinking, problem decomposition and a working knowledge of how software behaves at the implementation level. A master’s in the same field at the University of Windsor, Ontario followed.' },
   { t: 'Design and build, 2022 to 2024', h: 'Designing and shipping software', d: 'At Right Click IT Solutions, a contractor to government and oil and gas organizations in Nigeria, I worked on the brand redesign for NNPC Ltd, Nigeria’s national oil company, and redesigned and built ERP software for NNPC and NUPRC, covering offshore work like rig management.' },
-  { t: 'Design and product, 2025 to now', h: 'Leading design and product', d: 'I lead design and product at Aerrand and took it from a student survey to two apps live on the App Store and Google Play. A 100+ delivery pilot shaped the 2.0 redesign, now live. I’m also building Brain Box, a study app for Ontario driving tests and CELPIP.' },
+  { t: 'Design and product, 2025 to now', h: 'Leading design and product', d: 'I lead design and product at Aerrand and took it from a student survey to two apps live on the App Store and Google Play. A 100+ delivery pilot shaped the 2.0 redesign, now live. I’m also the product manager on Brain Box, a study app for Ontario driving tests and CELPIP.' },
   { t: 'Operations, 2025 to now', h: 'A year on the production floor', d: 'Alongside the product work, I’ve supervised automotive production at Stellantis and now Peterson Spring. It sharpened how I prioritize, align people and design for real conditions.' },
 ]
 
@@ -80,7 +80,7 @@ function Path() {
 /* ─── Experience ─────────────────────────────────────────────────────── */
 const experience = [
   { org: 'Aerrand', role: 'Product manager and product designer', field: 'Local delivery, live on iOS and Android', when: '2025 to now', to: '/work/aerrand', img: aerrand.customer.home },
-  { org: 'Brain Box', role: 'Product designer', field: 'Exam preparation, prototype built', when: '2026 to now', to: '/work/brain-box', img: brainbox.home },
+  { org: 'Brain Box', role: 'Product manager', field: 'Exam preparation, built and pre-launch', when: '2026 to now', to: '/work/brain-box', img: brainbox.home },
   { org: 'JunkCycle', role: 'Brand and web designer, freelance', field: 'Brand identity, still in use, and the first website', when: '2025', to: '/work/junkcycle', img: junkcycle.mobile.hero },
   { org: 'Right Click IT Solutions', role: 'Design engineer', field: 'NNPC brand redesign, and ERP software for NNPC and NUPRC', when: '2022 to 2024' },
   { org: 'Peterson Spring', role: 'Production supervisor', field: 'Automotive spring components', when: '2026 to now' },

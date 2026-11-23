@@ -191,10 +191,16 @@ const aerrandRole: Record<Track, string> = {
   product: 'Product manager. I lead the product from discovery and the roadmap through the pilot and beta, and I design it too.',
 }
 
+const brainboxRole: Record<Track, string> = {
+  all: 'Product manager. I own the product and direct the build.',
+  design: 'Product designer.',
+  product: 'Product manager. I own the product and direct the build.',
+}
+
 function panelsFor(track: Track): Panel[] {
-  const list = panels
-  return list.map(p => p.id !== 'aerrand' ? p : {
-    ...p, facts: p.facts.map(f => (f.k === 'My role' ? { ...f, v: aerrandRole[track] } : f)),
+  const roles: Record<string, Record<Track, string>> = { aerrand: aerrandRole, 'brain-box': brainboxRole }
+  return panels.map(p => !roles[p.id] ? p : {
+    ...p, facts: p.facts.map(f => (f.k === 'My role' ? { ...f, v: roles[p.id][track] } : f)),
   })
 }
 

@@ -42,13 +42,13 @@ function Hero() {
         </h1>
         <div className="bh__intro">
           <div data-fade>
-            <p className="t-lead bh__lead">One app for the Ontario G1, the G2 road test and CELPIP. Practise in the real format, get feedback, then fix the weak spot.</p>
+            <p className="t-lead bh__lead">One app for the Ontario G1, the G2 road test and CELPIP, built to work for every kind of learner. Practise in the real format, get feedback, then fix the weak spot.</p>
             <p className="bh__note">Brain Box is a working name.</p>
             {site.brainboxPrototype && <div className="stores__links"><a className="store store--outline" href={site.brainboxPrototype} target="_blank" rel="noreferrer"><span>Try the prototype</span><ArrowUpRight size={16} /></a></div>}
           </div>
           <div data-fade>
             <Facts items={[
-              ['My role', 'Product designer'],
+              ['My role', 'Product manager and product designer'],
               ['Timeline', '2026 to now'],
               ['Exams built', 'Ontario G1, G2 road test and CELPIP'],
               ['Status', 'All three modules built. Pre-launch, with reviews and testing still to do.'],
@@ -140,7 +140,7 @@ function Wedge() {
           <div className="engine">
             <p className="engine__label">One shared engine</p>
             <ul className="engine__parts">
-              {['Lessons', 'Flashcards', 'Mock tests', 'AI feedback', 'Competitive mode'].map(p => <li key={p} className="engine__part">{p}</li>)}
+              {['Lessons', 'Flashcards', 'Mock tests', 'Integrity mode', 'AI feedback'].map(p => <li key={p} className="engine__part">{p}</li>)}
             </ul>
           </div>
         </div>
@@ -173,6 +173,178 @@ function Modules() {
               <Facts items={m.facts} className="facts--stack" />
             </article>
           ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+/* ─── Onboarding: a sticky phone with scroll-swapped screens ─────────── */
+const setup = [
+  { src: brainbox.welcome, t: 'Pick the exams that matter', d: 'CELPIP and the G1 and G2 driving tests sit side by side from the first screen.' },
+  { src: brainbox.plan, t: 'Set a date, get a plan', d: 'The test date and target score turn into a countdown and a daily plan, with a full mock test every weekend.' },
+  { src: brainbox.needs, t: 'Say how you study best', d: 'Focus mode, reading support and calm mode are chosen during setup, not buried in settings.' },
+  { src: brainbox.home, t: 'Open the app to one clear task', d: 'Home leads with today’s lesson and how much is left, then the rest of the plan.' },
+]
+
+function Setup() {
+  const ref = useRef<HTMLElement>(null)
+  useGsap(() => {
+    const root = ref.current!
+    const q = gsap.utils.selector(root)
+    const shots = q('.setup__shot') as HTMLElement[]
+    const steps = q('.setup__step') as HTMLElement[]
+    gsap.set(shots.slice(1), { autoAlpha: 0 })
+    const calm = reducedMotion()
+    if (calm) steps.forEach(s => s.classList.add('is-active'))
+    let current = 0
+    const show = (i: number) => {
+      if (i === current) return
+      const prev = current
+      current = i
+      if (calm) { gsap.set(shots[prev], { autoAlpha: 0 }); gsap.set(shots[i], { autoAlpha: 1 }); return }
+      gsap.to(shots[prev], { autoAlpha: 0, yPercent: i > prev ? -6 : 6, duration: 0.5, ease: 'power2.inOut' })
+      gsap.fromTo(shots[i], { autoAlpha: 0, yPercent: i > prev ? 6 : -6 }, { autoAlpha: 1, yPercent: 0, duration: 0.6, ease: 'expo.out' })
+      steps.forEach((s, j) => s.classList.toggle('is-active', j === i))
+    }
+    if (!calm) steps[0].classList.add('is-active')
+    steps.forEach((s, i) => ScrollTrigger.create({ trigger: s, start: 'top 55%', end: 'bottom 55%', onToggle: self => { if (self.isActive) show(i) } }))
+  }, [], ref)
+
+  return (
+    <section ref={ref} className="case-sec setup" data-chapter="setup" data-label="Getting started" aria-labelledby="bs-title">
+      <div className="wrap">
+        <Head id="bs-title" k="Getting started" title="Three questions, then a plan" />
+        <div className="setup__grid">
+          <ol className="setup__steps">
+            {setup.map((s, i) => (
+              <li key={s.t} className="setup__step">
+                <span className="t-stencil setup__n">{i + 1}</span>
+                <h3 className="setup__t">{s.t}</h3>
+                <p className="setup__d">{s.d}</p>
+                <IPhone className="setup__inline" src={s.src} alt={s.t} statusBar={false} width="min(64vw, 280px)" finish="black" />
+              </li>
+            ))}
+          </ol>
+          <div className="setup__stick" aria-hidden="true">
+            <IPhone alt="" statusBar={false} width="var(--setup-phone)" finish="black" depth>
+              {setup.map(s => <img key={s.t} className="setup__shot" src={s.src} alt="" />)}
+            </IPhone>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+
+/* ─── Integrity mode ─────────────────────────────────────────────────── */
+function Integrity() {
+  const ref = useRef<HTMLElement>(null)
+  useGsap(() => {
+    const root = ref.current!
+    const q = gsap.utils.selector(root)
+    const clock = q('.report__clock')[0] as HTMLElement
+    const marks = q('.report__marks')[0] as HTMLElement
+    const fmt = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`
+    const state = { t: 0 }
+    const render = () => {
+      // Ten-minute mock; the learner leaves the app from 4:12 to 5:00.
+      const t = state.t
+      clock.textContent = fmt(Math.max(0, 600 - t))
+      const away = Math.max(0, Math.min(t, 300) - 252)
+      marks.textContent = away > 3 ? `−${Math.ceil(away / 60) * 5} marks` : 'No time away'
+      root.classList.toggle('is-away', t > 252 && t < 300)
+    }
+    if (reducedMotion()) { state.t = 600; render(); gsap.set(q('.report__fill, .report__away'), { scaleX: 1 }); root.classList.add('is-done'); return }
+    render()
+    const tl = gsap.timeline({ scrollTrigger: { trigger: q('.integrity__stage')[0], start: 'top 65%', end: 'bottom 40%', scrub: 0.6 }, defaults: { ease: 'none' } })
+    tl.to(state, { t: 600, duration: 1, onUpdate: render }, 0)
+      .fromTo(q('.report__fill'), { scaleX: 0 }, { scaleX: 1, duration: 1 }, 0)
+      .fromTo(q('.report__away'), { scaleX: 0 }, { scaleX: 1, duration: 0.08 }, 0.42)
+      .fromTo(q('.report__flag'), { autoAlpha: 0, y: 8 }, { autoAlpha: 1, y: 0, duration: 0.05 }, 0.5)
+      .to(q('.integrity__phone .integrity__alert'), { autoAlpha: 1, duration: 0.04 }, 0.42)
+      .to(q('.integrity__phone .integrity__alert'), { autoAlpha: 0, duration: 0.04 }, 0.52)
+      .add(() => {}, 1)
+  }, [], ref)
+
+  return (
+    <section ref={ref} className="integrity" data-chapter="integrity" data-label="Integrity mode" aria-labelledby="bi-title">
+      <div className="wrap">
+        <div className="integrity__head">
+          <p className="t-label integrity__k">The headline feature</p>
+          <h2 id="bi-title" className="t-display integrity__title">Integrity mode</h2>
+          <p className="t-lead integrity__lead">A readiness score is only worth something if the conditions match the real exam. During a full mock, leaving the app is detected, costs marks for the time away, and shows up in a report at the end. That’s what makes “you’d pass today” believable.</p>
+        </div>
+        <div className="integrity__stage">
+          <div className="integrity__phones">
+            <IPhone className="integrity__rules" src={brainbox.mock} alt="Mock test rules shown before it starts" statusBar={false} width="var(--int-phone)" finish="black" />
+            <IPhone className="integrity__phone" src={brainbox.question} alt="A mock test question in integrity mode" statusBar={false} width="var(--int-phone)" finish="black">
+              <span className="integrity__alert" aria-hidden="true">Timer still running. Come back to keep your marks.</span>
+            </IPhone>
+          </div>
+          <figure className="report" aria-label="Illustration: a ten-minute mock where the learner left the app for 48 seconds">
+            <figcaption className="report__title">Integrity report</figcaption>
+            <div className="report__row">
+              <span className="report__clock t-stencil">10:00</span>
+              <span className="report__marks">No time away</span>
+            </div>
+            <div className="report__bar">
+              <span className="report__fill" />
+              <span className="report__away" />
+              <span className="report__flag">Left the app at 4:12</span>
+            </div>
+            <ul className="report__rules">
+              <li>Rules are shown before the mock starts.</li>
+              <li>Each minute outside the app costs 5 marks, and the timer keeps running.</li>
+              <li>Interruptions under 3 seconds don’t count.</li>
+            </ul>
+          </figure>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+/* ─── Accessibility: a live demo ─────────────────────────────────────── */
+function Access() {
+  const [focus, setFocus] = useState(false)
+  const [reading, setReading] = useState(true)
+  const [calm, setCalm] = useState(false)
+  const ref = useRise('.access__card')
+  const modes = [
+    { k: 'focus', on: focus, set: setFocus, t: 'Focus mode', who: 'ADHD', d: 'Shorter sessions, more breaks, progress on every task.' },
+    { k: 'reading', on: reading, set: setReading, t: 'Reading support', who: 'Dyslexia', d: 'Larger text with extra letter and line spacing.' },
+    { k: 'calm', on: calm, set: setCalm, t: 'Calm mode', who: 'Autism', d: 'Reduced motion, predictable layouts, no surprise sounds.' },
+  ]
+  return (
+    <section ref={ref} className="case-sec access" data-chapter="access" data-label="Accessibility" aria-labelledby="bac-title">
+      <div className="wrap">
+        <Head id="bac-title" k="Accessibility" title="Asked at onboarding, not buried in settings">
+          The people who need these modes most are the least likely to dig through settings to find them. Asking up front also tells every learner the app was built with them in mind. Listen buttons can also read every question, lesson and card aloud. Try the modes here.
+        </Head>
+        <div className="access__grid">
+          <div className="access__modes" role="group" aria-label="Study modes">
+            {modes.map(m => (
+              <button key={m.k} type="button" className={`access__card${m.on ? ' is-on' : ''}`} aria-pressed={m.on} onClick={() => m.set(!m.on)}>
+                <span className="access__toggle" aria-hidden="true"><span /></span>
+                <span className="access__t">{m.t}<em>{m.who}</em></span>
+                <span className="access__d">{m.d}</span>
+              </button>
+            ))}
+          </div>
+          <div className={`sample${focus ? ' is-focus' : ''}${reading ? ' is-reading' : ''}${calm ? ' is-calm' : ''}`}>
+            <div className="sample__top">
+              <span className="sample__pill">Reading · question 1 of 5</span>
+              <span className="sample__dot" aria-hidden="true" />
+            </div>
+            <p className="sample__notice">Starting November 3, the pool will close at 8 p.m. on weekdays for maintenance. Weekend hours stay the same. Members with evening swim passes can switch to a morning pass at no extra cost.</p>
+            <p className="sample__q">What can evening pass holders do?</p>
+            <div className="sample__progress" aria-hidden="true">
+              {[0, 1, 2, 3, 4].map(i => <span key={i} className={i < 2 ? 'is-done' : ''} />)}
+            </div>
+            <p className="sample__hint">{focus ? 'Two of five done. A short break is coming up.' : calm ? 'Nothing on this screen will move or make a sound.' : 'Text adjusts as you switch modes.'}</p>
+          </div>
         </div>
       </div>
     </section>
@@ -215,10 +387,12 @@ const features = [
   ['Flashcards', 'Spaced repetition, with 246 G1 cards with sign pictures and CELPIP vocabulary with example sentences, audio and a Type it mode.'],
   ['AI marking', 'CELPIP writing and speaking are marked against the four rating areas and shown as a likely CLB range. The API key stays on the server.'],
   ['A spoken practice drive', 'The phone reads G2 instructions out loud in Coached or Mock mode, with voice on or off and a sound panel for voice, pace and speed.'],
+  ['Integrity mode', 'Leaving the app during a full mock costs 5 marks a minute, and the timer keeps running. Breaks under 3 seconds don’t count.'],
+  ['Accessibility modes', 'Focus mode, reading support and calm mode, chosen at setup, plus Listen buttons that read questions, lessons and cards aloud.'],
   ['Pronunciation practice', 'Read a sentence aloud and see which words the phone understood.'],
   ['Focus sessions', 'A focus timer with focus sounds and a focus lock, plus match and speed-round games.'],
   ['Competitive mode', 'Friend call-outs, Brain Box taunts, daily duels, a weekly leaderboard and a head-to-head scoreboard for each friend.'],
-  ['Accounts and friends', 'Real accounts and friends with Supabase, protected with row-level security.'],
+  ['Accounts and friends', 'Real accounts and friends with Supabase, protected with row-level security. Friends see mock scores only when competitive mode is on.'],
 ]
 
 function Features() {
@@ -350,7 +524,7 @@ function Metrics() {
 }
 
 export default function BrainBox() {
-  useTitle('Brain Box case study', 'Brain Box: a study app for the Ontario G1, the G2 road test and CELPIP, with real-format mock tests and AI feedback.')
+  useTitle('Brain Box case study', 'Brain Box: a study app for the Ontario G1, the G2 road test and CELPIP, with real-format mock tests, integrity mode, accessibility modes and AI feedback.')
   return (
     <div className="case case--brainbox">
       <Hero />
@@ -360,6 +534,9 @@ export default function BrainBox() {
       </div>
       <Wedge />
       <Modules />
+      <Setup />
+      <Integrity />
+      <Access />
       <Directed />
       <Features />
       <Roadmap />
