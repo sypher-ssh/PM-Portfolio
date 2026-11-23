@@ -573,7 +573,7 @@ function Decisions() {
             <ol className="guard__steps">
               <li><b>Tell us what to check.</b> Condition, model, anything the listing promised.</li>
               <li><b>We inspect at pickup.</b> The Aerrander checks the item with the seller and sends photos before leaving.</li>
-              <li><b>Approve, then it ships.</b> Payment is held until the buyer accepts delivery.</li>
+              <li><b>Accept, then it ships.</b> The buyer reviews the photos in chat and accepts before the Aerrander leaves.</li>
             </ol>
             <p className="guard__price"><span className="t-stencil">CA$9.99</span> added to the delivery fare, shown before you commit.</p>
           </div>
