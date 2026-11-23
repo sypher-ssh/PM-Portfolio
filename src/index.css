@@ -1303,9 +1303,14 @@ button { font: inherit; color: inherit; }
 .rs-stat__n { margin: 0; font-size: clamp(72px, 8vw, 128px); line-height: .9; }
 .rs-stat__n span { font-size: .45em; opacity: .5; }
 .rs-stat__l { margin: 10px 0 0; font-size: 17px; line-height: 1.5; color: var(--color-ink-2); }
-.pl-quote { margin: clamp(8px, 1vw, 16px) 0 clamp(40px, 5vw, 72px); padding: clamp(24px, 3vw, 40px); border-radius: 26px; background: var(--color-aerrand); color: #fff; }
+.pl-quotes { display: grid; grid-template-columns: 1.25fr 1fr; align-items: start; gap: clamp(12px, 1.6vw, 20px); margin: clamp(8px, 1vw, 16px) 0 clamp(40px, 5vw, 72px); }
+@media (max-width: 860px) { .pl-quotes { grid-template-columns: 1fr; } }
+.pl-quote { margin: 0; padding: clamp(24px, 3vw, 40px); border-radius: 26px; background: var(--color-aerrand); color: #fff; }
 .pl-quote blockquote { margin: 0; font-size: clamp(36px, 4.4vw, 72px); font-weight: 800; line-height: .98; }
 .pl-quote figcaption { margin-top: 14px; font-size: 16px; opacity: .8; }
+.pl-quote--alt { background: #fff; color: var(--color-ink); border: 1px solid rgba(22,33,28,.12); }
+.pl-quote--alt blockquote { font-size: clamp(20px, 1.8vw, 28px); font-weight: 600; line-height: 1.3; }
+.pl-quote--alt figcaption { color: var(--color-ink-2); opacity: 1; }
 .findings { display: grid; }
 .finding { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(20px, 4vw, 64px); padding: 22px 0; border-top: 1px solid rgba(22,33,28,.16); font-size: 17px; line-height: 1.55; }
 .finding--head { font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--color-ink-2); padding: 0 0 12px; border-top: 0; }

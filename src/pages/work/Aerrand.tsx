@@ -176,10 +176,16 @@ function Pilot() {
         <Head id="pl-title" k="The pilot" title="100+ deliveries, and what they taught us">
           We ran a pilot in Windsor with 15 Aerranders. Every delivery was completed, about 20 of them with Aerrand Guard. The pilot also showed us exactly where 1.0 was letting people down, and each finding below became part of 2.0.
         </Head>
-        <figure className="pl-quote">
-          <blockquote className="t-display">“I never knew how much I needed this.”</blockquote>
-          <figcaption>Jeremiah, during the pilot</figcaption>
-        </figure>
+        <div className="pl-quotes">
+          <figure className="pl-quote">
+            <blockquote className="t-display">“I never knew how much I needed this.”</blockquote>
+            <figcaption>Jeremiah, during the pilot</figcaption>
+          </figure>
+          <figure className="pl-quote pl-quote--alt">
+            <blockquote>“Everything went smoothly. I’ll definitely leave a review. Wishing you guys success with Aerrand!”</blockquote>
+            <figcaption>A Facebook Marketplace seller after a pilot delivery, shared with permission</figcaption>
+          </figure>
+        </div>
         <div className="findings" role="table" aria-label="What we saw in the pilot and what we changed">
           <div className="finding finding--head" role="row">
             <span role="columnheader">What we saw</span><span role="columnheader">What we changed</span>
