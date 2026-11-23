@@ -42,7 +42,7 @@ function Hero() {
         </h1>
         <div className="bh__intro">
           <div data-fade>
-            <p className="t-lead bh__lead">One calm, accessible app for the tests that move a newcomer’s life forward: language, driving and citizenship. Mock exams feel like the real thing because you can’t cheat on them.</p>
+            <p className="t-lead bh__lead">One app for the Ontario G1, the G2 road test and CELPIP. Practise in the real format, get feedback, then fix the weak spot.</p>
             <p className="bh__note">Brain Box is a working name.</p>
             {site.brainboxPrototype && <div className="stores__links"><a className="store store--outline" href={site.brainboxPrototype} target="_blank" rel="noreferrer"><span>Try the prototype</span><ArrowUpRight size={16} /></a></div>}
           </div>
@@ -58,7 +58,7 @@ function Hero() {
       </div>
       <div className="bh__stage" aria-hidden="true">
         <div className="bh__glow" />
-        <IPhone className="bh__phone bh__phone--l" src={brainbox.plan} alt="" statusBar={false} width="var(--bh-phone)" finish="black" loading="eager" />
+        <IPhone className="bh__phone bh__phone--l" src={brainbox.learn} alt="" statusBar={false} width="var(--bh-phone)" finish="black" loading="eager" />
         <IPhone className="bh__phone bh__phone--c" src={brainbox.home} alt="" statusBar={false} width="var(--bh-phone)" finish="black" loading="eager" />
         <IPhone className="bh__phone bh__phone--r" src={brainbox.question} alt="" statusBar={false} width="var(--bh-phone)" finish="black" loading="eager" />
       </div>
@@ -68,10 +68,10 @@ function Hero() {
 
 /* ─── Problem ────────────────────────────────────────────────────────── */
 const problems = [
-  { t: 'One person, a different app for every test.', d: 'Every exam has its own app, its own login and its own habits to build, even though the same person is studying for all of them.' },
-  { t: 'Practice tests don’t feel like the real thing.', d: 'A mock you can pause, leave and look things up during produces a score that means very little. People walk into the real exam with false confidence.' },
-  { t: 'Speaking practice needs a partner.', d: 'CELPIP Speaking is graded on fluency and structure, but practising out loud usually means finding a tutor or a patient friend.' },
-  { t: 'Accessibility is an afterthought.', d: 'Learners with ADHD, dyslexia or autism are left to fight interfaces built for someone else, on tests where the stakes are already high.' },
+  { t: 'People piece their prep together.', d: 'Studying for the G1, the G2 road test or CELPIP usually means a mix of PDFs, random practice sites and YouTube.' },
+  { t: 'Practice rarely matches the real test.', d: 'Few tools let people practise in the real format, with the real timing and the real pass rules.' },
+  { t: 'Nothing says what to fix.', d: 'A score on its own doesn’t tell anyone which skill is holding them back, especially for CELPIP writing and speaking.' },
+  { t: 'No one guides the passenger.', d: 'For the road test, the person supervising a practice drive has nothing telling them what to say or what to watch for.' },
 ]
 
 function Problem() {
@@ -80,7 +80,7 @@ function Problem() {
     <section ref={ref} className="case-sec" data-chapter="problem" data-label="The problem" aria-labelledby="bp-title">
       <div className="wrap split">
         <div className="split__side">
-          <Head id="bp-title" k="The problem" title="High-stakes tests, low-quality practice" />
+          <Head id="bp-title" k="The problem" title="Scattered prep, no feedback" />
         </div>
         <ol className="problems">
           {problems.map(p => (
@@ -90,34 +90,6 @@ function Problem() {
             </li>
           ))}
         </ol>
-      </div>
-    </section>
-  )
-}
-
-/* ─── Audiences ──────────────────────────────────────────────────────── */
-const audiences = [
-  { when: 'Primary audience', who: 'Newcomers and immigrants', about: 'People settling into a new country who need to pass a language, driving and citizenship test, often while working.', need: 'One place to prepare, a plan that fits their test date, and mocks that predict the real result.' },
-  { when: 'Designed in from day one', who: 'Learners with ADHD, dyslexia or autism', about: 'Not a separate audience so much as a lens: if the app works for them, it works better for everyone.', need: 'Shorter chunks, clear progress, readable type, calm layouts and no surprises.' },
-  { when: 'Later', who: 'Students and institutions', about: 'Academic studying, school logins, and licences for language schools, driving schools and settlement agencies.', need: 'These build on a working product and an existing user base, so they come after the exam app is proven.' },
-]
-
-function Audiences() {
-  const ref = useRise('.bb-aud')
-  return (
-    <section ref={ref} className="case-sec case-sec--tint" data-chapter="audiences" data-label="Who it’s for" aria-labelledby="ba-title">
-      <div className="wrap">
-        <Head id="ba-title" k="Who it’s for" title="Built for newcomers first" />
-        <div className="bb-auds">
-          {audiences.map(a => (
-            <article key={a.who} className="bb-aud">
-              <p className="t-label bb-aud__when">{a.when}</p>
-              <h3 className="t-display bb-aud__who">{a.who}</h3>
-              <p className="bb-aud__about">{a.about}</p>
-              <Facts items={[[a.when === 'Later' ? 'Why later' : 'What they need', a.need]]} className="facts--stack" />
-            </article>
-          ))}
-        </div>
       </div>
     </section>
   )
@@ -153,12 +125,12 @@ function Wedge() {
             <article className="ticket ticket--g1">
               <p className="ticket__price">Free</p>
               <h3 className="t-display ticket__name">Ontario G1</h3>
-              <p className="ticket__d">High volume and low stakes. The entry point that brings newcomers in.</p>
+              <p className="ticket__d">Free, so anyone can start with the written test.</p>
             </article>
             <article className="ticket ticket--celpip">
               <p className="ticket__price">Paid</p>
               <h3 className="t-display ticket__name">CELPIP</h3>
-              <p className="ticket__d">High stakes and tied directly to permanent residence, so it’s where people most want better preparation.</p>
+              <p className="ticket__d">A paid pass with AI marking for writing and speaking. The G2 road test is a paid pass too.</p>
             </article>
           </div>
           <svg className="wedge__wires" viewBox="0 0 1000 120" preserveAspectRatio="none" aria-hidden="true">
@@ -168,7 +140,7 @@ function Wedge() {
           <div className="engine">
             <p className="engine__label">One shared engine</p>
             <ul className="engine__parts">
-              {['Lessons', 'Flashcards', 'Mock exams', 'Integrity mode', 'Readiness score'].map(p => <li key={p} className="engine__part">{p}</li>)}
+              {['Lessons', 'Flashcards', 'Mock tests', 'AI feedback', 'Competitive mode'].map(p => <li key={p} className="engine__part">{p}</li>)}
             </ul>
           </div>
         </div>
@@ -207,184 +179,12 @@ function Modules() {
   )
 }
 
-/* ─── Onboarding: a sticky phone with scroll-swapped screens ─────────── */
-const setup = [
-  { src: brainbox.welcome, t: 'Pick the exams that matter', d: 'CELPIP and the G1 and G2 driving tests sit side by side from the first screen.' },
-  { src: brainbox.plan, t: 'Set a date, get a plan', d: 'The test date and target score turn into a countdown and a daily plan: about 30 minutes a day, with a full mock every weekend.' },
-  { src: brainbox.needs, t: 'Say how you study best', d: 'Focus mode, reading support and calm mode are chosen during setup, not buried in settings.' },
-  { src: brainbox.home, t: 'Open the app to one clear task', d: 'Home leads with today’s lesson and how much is left, then the rest of the plan.' },
-]
-
-function Setup() {
-  const ref = useRef<HTMLElement>(null)
-  useGsap(() => {
-    const root = ref.current!
-    const q = gsap.utils.selector(root)
-    const shots = q('.setup__shot') as HTMLElement[]
-    const steps = q('.setup__step') as HTMLElement[]
-    gsap.set(shots.slice(1), { autoAlpha: 0 })
-    const calm = reducedMotion()
-    if (calm) steps.forEach(s => s.classList.add('is-active'))
-    let current = 0
-    const show = (i: number) => {
-      if (i === current) return
-      const prev = current
-      current = i
-      if (calm) { gsap.set(shots[prev], { autoAlpha: 0 }); gsap.set(shots[i], { autoAlpha: 1 }); return }
-      gsap.to(shots[prev], { autoAlpha: 0, yPercent: i > prev ? -6 : 6, duration: 0.5, ease: 'power2.inOut' })
-      gsap.fromTo(shots[i], { autoAlpha: 0, yPercent: i > prev ? 6 : -6 }, { autoAlpha: 1, yPercent: 0, duration: 0.6, ease: 'expo.out' })
-      steps.forEach((s, j) => s.classList.toggle('is-active', j === i))
-    }
-    if (!calm) steps[0].classList.add('is-active')
-    steps.forEach((s, i) => ScrollTrigger.create({ trigger: s, start: 'top 55%', end: 'bottom 55%', onToggle: self => { if (self.isActive) show(i) } }))
-  }, [], ref)
-
-  return (
-    <section ref={ref} className="case-sec setup" data-chapter="setup" data-label="Getting started" aria-labelledby="bs-title">
-      <div className="wrap">
-        <Head id="bs-title" k="Getting started" title="Three questions, then a plan" />
-        <div className="setup__grid">
-          <ol className="setup__steps">
-            {setup.map((s, i) => (
-              <li key={s.t} className="setup__step">
-                <span className="t-stencil setup__n">{i + 1}</span>
-                <h3 className="setup__t">{s.t}</h3>
-                <p className="setup__d">{s.d}</p>
-                <IPhone className="setup__inline" src={s.src} alt={s.t} statusBar={false} width="min(64vw, 280px)" finish="black" />
-              </li>
-            ))}
-          </ol>
-          <div className="setup__stick" aria-hidden="true">
-            <IPhone alt="" statusBar={false} width="var(--setup-phone)" finish="black" depth>
-              {setup.map(s => <img key={s.t} className="setup__shot" src={s.src} alt="" />)}
-            </IPhone>
-          </div>
-        </div>
-      </div>
-    </section>
-  )
-}
-
-
-/* ─── Integrity mode ─────────────────────────────────────────────────── */
-function Integrity() {
-  const ref = useRef<HTMLElement>(null)
-  useGsap(() => {
-    const root = ref.current!
-    const q = gsap.utils.selector(root)
-    const clock = q('.report__clock')[0] as HTMLElement
-    const marks = q('.report__marks')[0] as HTMLElement
-    const fmt = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`
-    const state = { t: 0 }
-    const render = () => {
-      // Ten-minute mock; the learner leaves the app from 4:12 to 5:00.
-      const t = state.t
-      clock.textContent = fmt(Math.max(0, 600 - t))
-      const away = Math.max(0, Math.min(t, 300) - 252)
-      marks.textContent = away > 3 ? `−${Math.ceil(away / 60) * 5} marks` : 'No time away'
-      root.classList.toggle('is-away', t > 252 && t < 300)
-    }
-    if (reducedMotion()) { state.t = 600; render(); gsap.set(q('.report__fill, .report__away'), { scaleX: 1 }); root.classList.add('is-done'); return }
-    render()
-    const tl = gsap.timeline({ scrollTrigger: { trigger: q('.integrity__stage')[0], start: 'top 65%', end: 'bottom 40%', scrub: 0.6 }, defaults: { ease: 'none' } })
-    tl.to(state, { t: 600, duration: 1, onUpdate: render }, 0)
-      .fromTo(q('.report__fill'), { scaleX: 0 }, { scaleX: 1, duration: 1 }, 0)
-      .fromTo(q('.report__away'), { scaleX: 0 }, { scaleX: 1, duration: 0.08 }, 0.42)
-      .fromTo(q('.report__flag'), { autoAlpha: 0, y: 8 }, { autoAlpha: 1, y: 0, duration: 0.05 }, 0.5)
-      .to(q('.integrity__phone .integrity__alert'), { autoAlpha: 1, duration: 0.04 }, 0.42)
-      .to(q('.integrity__phone .integrity__alert'), { autoAlpha: 0, duration: 0.04 }, 0.52)
-      .add(() => {}, 1)
-  }, [], ref)
-
-  return (
-    <section ref={ref} className="integrity" data-chapter="integrity" data-label="Integrity mode" aria-labelledby="bi-title">
-      <div className="wrap">
-        <div className="integrity__head">
-          <p className="t-label integrity__k">The headline feature</p>
-          <h2 id="bi-title" className="t-display integrity__title">Integrity mode</h2>
-          <p className="t-lead integrity__lead">A readiness score is only worth something if the conditions match the real exam. During a full mock, leaving the app is detected, costs marks for the time away, and shows up in a report at the end. That’s what makes “you’d pass today” believable.</p>
-        </div>
-        <div className="integrity__stage">
-          <div className="integrity__phones">
-            <IPhone className="integrity__rules" src={brainbox.mock} alt="Mock test rules shown before it starts" statusBar={false} width="var(--int-phone)" finish="black" />
-            <IPhone className="integrity__phone" src={brainbox.question} alt="A mock test question in integrity mode" statusBar={false} width="var(--int-phone)" finish="black">
-              <span className="integrity__alert" aria-hidden="true">Timer still running. Come back to keep your marks.</span>
-            </IPhone>
-          </div>
-          <figure className="report" aria-label="Illustration: a ten-minute mock where the learner left the app for 48 seconds">
-            <figcaption className="report__title">Integrity report</figcaption>
-            <div className="report__row">
-              <span className="report__clock t-stencil">10:00</span>
-              <span className="report__marks">No time away</span>
-            </div>
-            <div className="report__bar">
-              <span className="report__fill" />
-              <span className="report__away" />
-              <span className="report__flag">Left the app at 4:12</span>
-            </div>
-            <ul className="report__rules">
-              <li>Rules are shown before the mock starts.</li>
-              <li>Each minute outside the app costs 5 marks, and the timer keeps running.</li>
-              <li>Interruptions under 3 seconds don’t count.</li>
-            </ul>
-          </figure>
-        </div>
-      </div>
-    </section>
-  )
-}
-
-/* ─── Accessibility: a live demo ─────────────────────────────────────── */
-function Access() {
-  const [focus, setFocus] = useState(false)
-  const [reading, setReading] = useState(true)
-  const [calm, setCalm] = useState(false)
-  const ref = useRise('.access__card')
-  const modes = [
-    { k: 'focus', on: focus, set: setFocus, t: 'Focus mode', who: 'ADHD', d: 'Shorter sessions, more breaks, progress on every task.' },
-    { k: 'reading', on: reading, set: setReading, t: 'Reading support', who: 'Dyslexia', d: 'Larger text with extra letter and line spacing.' },
-    { k: 'calm', on: calm, set: setCalm, t: 'Calm mode', who: 'Autism', d: 'Reduced motion, predictable layouts, no surprise sounds.' },
-  ]
-  return (
-    <section ref={ref} className="case-sec access" data-chapter="access" data-label="Accessibility" aria-labelledby="bac-title">
-      <div className="wrap">
-        <Head id="bac-title" k="Accessibility" title="Asked at onboarding, not buried in settings">
-          The people who need these modes most are the least likely to dig through settings to find them. Asking up front also tells every learner the app was built with them in mind. Try them here.
-        </Head>
-        <div className="access__grid">
-          <div className="access__modes" role="group" aria-label="Study modes">
-            {modes.map(m => (
-              <button key={m.k} type="button" className={`access__card${m.on ? ' is-on' : ''}`} aria-pressed={m.on} onClick={() => m.set(!m.on)}>
-                <span className="access__toggle" aria-hidden="true"><span /></span>
-                <span className="access__t">{m.t}<em>{m.who}</em></span>
-                <span className="access__d">{m.d}</span>
-              </button>
-            ))}
-          </div>
-          <div className={`sample${focus ? ' is-focus' : ''}${reading ? ' is-reading' : ''}${calm ? ' is-calm' : ''}`}>
-            <div className="sample__top">
-              <span className="sample__pill">Reading · question 1 of 5</span>
-              <span className="sample__dot" aria-hidden="true" />
-            </div>
-            <p className="sample__notice">Starting November 3, the pool will close at 8 p.m. on weekdays for maintenance. Weekend hours stay the same. Members with evening swim passes can switch to a morning pass at no extra cost.</p>
-            <p className="sample__q">What can evening pass holders do?</p>
-            <div className="sample__progress" aria-hidden="true">
-              {[0, 1, 2, 3, 4].map(i => <span key={i} className={i < 2 ? 'is-done' : ''} />)}
-            </div>
-            <p className="sample__hint">{focus ? 'Two of five done. A short break is coming up.' : calm ? 'Nothing on this screen will move or make a sound.' : 'Text adjusts as you switch modes.'}</p>
-          </div>
-        </div>
-      </div>
-    </section>
-  )
-}
-
 /* ─── How it was built ───────────────────────────────────────────────── */
 const directed = [
   { t: 'I tested it the way a passenger or test-taker would', d: 'The G2 practice drive was buried as one tile, and taps were allowed while the car was moving. It became a drive in road order, marked only at natural stops. In CELPIP, the speaker button couldn’t be stopped and one voice read every speaker. Both were fixed.' },
   { t: 'I checked the content, not just the copy', d: 'I asked about one road sign, and it turned out to be made up, so it was removed with its question. Every G2 claim was checked against the handbook, and CELPIP sources were read before anything was used.' },
   { t: 'I made the cues short and action-first', d: 'Anything a driver hears while moving got shorter. “Check seat and mirrors” replaced wordy lines, “go straight through” became “go straight when it’s safe”, and an “Up next” screen fixed cues that were read too early.' },
-  { t: 'I set the limits early', d: 'Every question and passage is original, with no official artwork or scraped material. No API key ships in the app. Scores are shown as ranges, never as a promise.' },
+  { t: 'I asked for honest ratings, then raised the bar', d: 'G1 went from 5 out of 10 to 9. G2 went from 7 to 8. CELPIP went from 2 to 7 in two days, before speaking feedback, the full practice test and the source check were added.' },
 ]
 
 function Directed() {
@@ -410,15 +210,15 @@ function Directed() {
 
 /* ─── Features ───────────────────────────────────────────────────────── */
 const features = [
-  ['Onboarding and study plan', 'Pick an exam and a test date to get a plan and countdown. Choose accessibility needs up front, then a short diagnostic sets the starting level.'],
-  ['Learning content', 'Short lessons and skill cards for each exam. Questions and facts are checked against the official handbook and sources before they go in.'],
-  ['Flashcards', 'Spaced repetition so weak cards come back more often, plus streaks, timed rounds and match-the-pairs.'],
-  ['Practice and mock exams', 'Topic quizzes and full-length timed mocks that mirror the real format, with explanations and a readiness score.'],
-  ['Integrity mode', 'Leaving the app during a full mock is detected and costs marks. A report shows any time away.'],
-  ['Voice AI', 'Spoken quizzing, and CELPIP Speaking mocks graded on fluency, vocabulary and structure, with a full transcript.'],
+  ['Mock tests in the real format', 'The G1 mock marks like the real test, with 16 of 20 needed on each section. CELPIP has a full 3-hour practice test across all four skills.'],
+  ['Lessons and skill cards', 'G1 has 7 units and 27 lessons. G2 has 17 short skill cards that support the drive. CELPIP has 15 legs and 34 lessons.'],
+  ['Flashcards', 'Spaced repetition, with 246 G1 cards with sign pictures and CELPIP vocabulary with example sentences, audio and a Type it mode.'],
+  ['AI marking', 'CELPIP writing and speaking are marked against the four rating areas and shown as a likely CLB range. The API key stays on the server.'],
+  ['A spoken practice drive', 'The phone reads G2 instructions out loud in Coached or Mock mode, with voice on or off and a sound panel for voice, pace and speed.'],
+  ['Pronunciation practice', 'Read a sentence aloud and see which words the phone understood.'],
   ['Focus sessions', 'A focus timer with focus sounds and a focus lock, plus match and speed-round games.'],
-  ['Accessibility modes', 'Dyslexia-friendly type and spacing, ADHD and calm modes, focus sounds, text-to-speech and reduced motion.'],
-  ['Competitive mode', 'Friend call-outs, daily duels, a weekly leaderboard and a head-to-head scoreboard for each friend. Competition is always optional.'],
+  ['Competitive mode', 'Friend call-outs, Brain Box taunts, daily duels, a weekly leaderboard and a head-to-head scoreboard for each friend.'],
+  ['Accounts and friends', 'Real accounts and friends with Supabase, protected with row-level security.'],
 ]
 
 function Features() {
@@ -435,7 +235,7 @@ function Features() {
     <section ref={ref} className="case-sec case-sec--tint features" data-chapter="features" data-label="The MVP" aria-labelledby="bf-title">
       <div className="wrap features__grid">
         <div>
-          <Head id="bf-title" k="The MVP" title="Everything the first version does" />
+          <Head id="bf-title" k="The MVP" title="Everything in the app today" />
           <div className="features__phones" aria-hidden="true">
             <IPhone className="features__phone--a" src={brainbox.learn} alt="" statusBar={false} width="var(--feat-phone)" finish="black" />
             <IPhone className="features__phone--b" src={brainbox.practice} alt="" statusBar={false} width="var(--feat-phone)" finish="black" />
@@ -453,9 +253,9 @@ function Features() {
 
 /* ─── Roadmap ────────────────────────────────────────────────────────── */
 const roadmap = [
-  { t: 'MVP', h: 'Prove the engine on the first exams', items: ['Ontario G1, G2 road test and CELPIP, all built', 'Accounts, friends and competitive mode, built', 'Web launch first, then the app stores', 'Reviews by a CELPIP teacher and a licensed instructor'], why: 'Prove the engine and the differentiators on three modules before spreading thin.' },
-  { t: 'Phase 2', h: 'More exams, deeper features', items: ['IELTS General, TEF and TCF Canada, the citizenship test', 'Upload your own material', 'AI-graded writing for more exams', 'A multilingual interface'], why: 'Reuse the same engine for more exams, and add features that need more content or users.' },
-  { t: 'Later', h: 'Beyond newcomer exams', items: ['Academic mode and institutions', 'A learning feed and community library', 'UK and European exams, professional certifications'], why: 'These build on a proven product and an existing user base.' },
+  { t: 'Built', h: 'Three modules on one engine', items: ['Ontario G1, G2 road test and CELPIP', 'Competitive mode, accounts and friends', 'A web build of the whole app'], why: 'Everything here works today, with AI marking and accounts switched off in the demo.' },
+  { t: 'Before launch', h: 'Checked by experts, tested for real', items: ['Content reviews by a CELPIP teacher and a licensed instructor', 'Natural voice recordings and the AI marking server', 'Real-phone testing and payments'], why: 'Launch is on hold for now. When it goes out, it goes to the web first to avoid app-store fees, then to the stores.' },
+  { t: 'Later', h: 'More on the same drive system', items: ['GPS speed tracking on the practice drive', 'The G test, built on the G2 drive system', 'Road tests outside Ontario'], why: 'Each one reuses the practice drive that’s already built.' },
 ]
 
 function Roadmap() {
@@ -469,7 +269,7 @@ function Roadmap() {
   return (
     <section ref={ref} className="case-sec roadmap" data-chapter="roadmap" data-label="Roadmap" aria-labelledby="br-title">
       <div className="wrap">
-        <Head id="br-title" k="Roadmap" title="Narrow first, without boxing the product in" />
+        <Head id="br-title" k="Roadmap" title="Built, then checked, then launched" />
         <div className="road">
           <div className="road__line" aria-hidden="true"><span /></div>
           <ol className="road__stops">
@@ -491,16 +291,17 @@ function Roadmap() {
 
 /* ─── Decisions and guardrails ───────────────────────────────────────── */
 const decisions = [
-  { t: 'Integrity mode as the headline feature', d: 'Full mocks run in a locked mode, because a readiness score only means something when the conditions match the real exam.' },
-  { t: 'Accessibility at onboarding', d: 'Learners pick their needs during setup and can change them anytime, instead of hunting through settings.' },
-  { t: 'Free where the stakes are civic, paid where they’re higher', d: 'Driving and citizenship prep stays generous or free. Language exams and certifications are paid, through a subscription, a one-time exam pass or AI credit packs. Basic preparation never sits behind a paywall.' },
-  { t: 'Compete on what’s unique, not on parity', d: 'A newcomer product won’t win a feature race against established single-exam apps. It can win by being the only one that does four things together: integrity mode, voice AI, accessibility and many exams in one app.' },
+  { t: 'G2 is a drive, not a course', d: 'The first version was a study course with the drive tucked away as one tile. I flipped it so the practice drive comes first and short skill cards support it.' },
+  { t: 'Parallel parking stays required', d: 'Not every test centre checks it, but every driver should know how to do it, so it stays in the drive.' },
+  { t: 'Scores show a range, never a promise', d: 'Results say things like “Likely CLB 7 to 8” or “You passed this mock”, with a note that test-day conditions can change the result.' },
+  { t: 'The written test is free', d: 'G1 is free, and the G2 road test and CELPIP are paid passes.' },
 ]
 const guardrails: [string, string][] = [
-  ['Platform limits', 'iOS only allows app blocking through Apple’s Screen Time API, so focus lockdown works within that rather than taking over the phone.'],
-  ['Content rights', 'Outside material is linked or embedded, never copied and redistributed.'],
-  ['Community uploads', 'Shared decks and notes are rated and moderated to remove copyrighted material.'],
-  ['Privacy and pressure', 'Scores are private by default, and competition is always optional.'],
+  ['Original content', 'Every question, passage and sign is original. Nothing is copied from official material or practice sites.'],
+  ['Sources', 'Every internet source is reviewed by me before it’s used.'],
+  ['API keys', 'No API key ships in the app. AI marking runs on a small server.'],
+  ['Expert review', 'A CELPIP teacher and a licensed instructor review the content before launch.'],
+  ['Approval', 'Nothing goes live without my approval.'],
 ]
 
 function Decisions() {
@@ -519,7 +320,7 @@ function Decisions() {
         </div>
         <div className="guards">
           <h3 className="t-display guards__title">What it won’t do</h3>
-          <p className="guards__intro">Some of the most important decisions are about limits. These were set early so they shape the design instead of being patched in later.</p>
+          <p className="guards__intro">These rules were set early, so they shaped the product instead of being patched in later.</p>
           <ul className="guards__list">
             {guardrails.map(([k, v]) => <li key={k} className="guard-row"><span className="guard-row__k">{k}</span><span className="guard-row__v">{v}</span></li>)}
           </ul>
@@ -530,37 +331,15 @@ function Decisions() {
 }
 
 /* ─── Metrics and status ─────────────────────────────────────────────── */
-const supporting = [
-  'Onboarding completed with an exam and test date set',
-  'Diagnostic quiz completion rate',
-  'Weekly active learners',
-  'Full mocks completed in integrity mode',
-  'Exam pass and AI credit pack purchases',
-  'Readiness score compared with the real result learners report',
-  'Mocks abandoned after a penalty',
-]
-
 function Metrics() {
-  const ref = useRise('.bb-metric')
+  const ref = useRise('.bb-status')
   return (
-    <section ref={ref} className="case-sec case-sec--tint bb-metrics" data-chapter="metrics" data-label="Measuring it" aria-labelledby="bm-title">
+    <section ref={ref} className="case-sec case-sec--tint bb-metrics" data-chapter="status" data-label="Status" aria-labelledby="bm-title">
       <div className="wrap">
-        <Head id="bm-title" k="Measuring it" title="One number that matters most">
-          Brain Box is pre-launch, so these are the measures the MVP is designed to track, not results.
-        </Head>
-        <div className="north">
-          <p className="north__k">North star</p>
-          <p className="t-display north__m">Learners who reach “ready” before their test date</p>
-          <p className="north__d">It ties engagement to the outcome people actually came for. Lessons and streaks only matter if they lead to a readiness score the learner can trust on test day.</p>
-        </div>
-        <ul className="bb-metric-list">
-          {supporting.map(m => <li key={m} className="bb-metric">{m}</li>)}
-        </ul>
+        <Head id="bm-title" k="Status" title="Where it stands" />
         <div className="bb-status">
-          <h3 className="t-display bb-status__title">Where it stands</h3>
           <Facts items={[
-            ['Feature scope and roadmap', 'Defined: MVP, Phase 2 and later'],
-            ['Business model', 'Defined: G1 free, G2 and CELPIP as paid passes, with a web launch before the app stores'],
+                        ['Business model', 'Defined: G1 free, G2 and CELPIP as paid passes, with a web launch before the app stores'],
             ['Built', 'G1, G2 road test and CELPIP modules, competitive mode, accounts and a web build'],
             ['Before launch', 'Expert content reviews, natural voice recordings, the AI marking server, real-phone testing and payments'],
           ]} />
@@ -571,20 +350,16 @@ function Metrics() {
 }
 
 export default function BrainBox() {
-  useTitle('Brain Box case study', 'Brain Box: an accessible exam-prep app for newcomers, with integrity-mode mock tests for the Ontario G1, G2 road test and CELPIP.')
+  useTitle('Brain Box case study', 'Brain Box: a study app for the Ontario G1, the G2 road test and CELPIP, with real-format mock tests and AI feedback.')
   return (
     <div className="case case--brainbox">
       <Hero />
       <Problem />
       <div className="wrap bb-insight">
-        <ScrubWords className="insight__text">Newcomers don’t need another quiz app. They need practice that tells them the truth about whether they’re ready, in an app that doesn’t fight how their mind works.</ScrubWords>
+        <ScrubWords className="insight__text">Practise in the real format, get feedback, fix the weak spot. That’s how I passed CELPIP, and it’s the loop the whole app is built on.</ScrubWords>
       </div>
-      <Audiences />
       <Wedge />
       <Modules />
-      <Setup />
-      <Integrity />
-      <Access />
       <Directed />
       <Features />
       <Roadmap />

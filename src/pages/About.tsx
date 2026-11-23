@@ -39,7 +39,7 @@ function Intro() {
 const path = [
   { t: 'Engineering, 2018 to 2026', h: 'Learning how things are built', d: 'A bachelor’s in electrical and computer engineering at Afe Babalola University in Ado Ekiti, Nigeria, gave me systems thinking, problem decomposition and a working knowledge of how software behaves at the implementation level. A master’s in the same field at the University of Windsor, Ontario followed.' },
   { t: 'Design and build, 2022 to 2024', h: 'Designing and shipping software', d: 'At Right Click IT Solutions, a contractor to government and oil and gas organizations in Nigeria, I worked on the brand redesign for NNPC Ltd, Nigeria’s national oil company, and redesigned and built ERP software for NNPC and NUPRC, covering offshore work like rig management.' },
-  { t: 'Design and product, 2025 to now', h: 'Leading design and product', d: 'I lead design and product at Aerrand and took it from a student survey to two apps live on the App Store and Google Play. A 100+ delivery pilot shaped the 2.0 redesign, now live. I’m also designing Brain Box, an exam-prep app for newcomers.' },
+  { t: 'Design and product, 2025 to now', h: 'Leading design and product', d: 'I lead design and product at Aerrand and took it from a student survey to two apps live on the App Store and Google Play. A 100+ delivery pilot shaped the 2.0 redesign, now live. I’m also building Brain Box, a study app for Ontario driving tests and CELPIP.' },
   { t: 'Operations, 2025 to now', h: 'A year on the production floor', d: 'Alongside the product work, I’ve supervised automotive production at Stellantis and now Peterson Spring. It sharpened how I prioritize, align people and design for real conditions.' },
 ]
 

@@ -14,7 +14,7 @@ const line: ConveyorItem[] = [
   { src: aerrand.customer.home, alt: 'Aerrand customer app home screen', to: '/work/aerrand', product: 'Aerrand', screen: 'Customer app' },
   { src: brainbox.home, alt: 'Brain Box home screen with today’s study plan', to: '/work/brain-box', product: 'Brain Box', screen: 'Daily plan', finish: 'black' },
   { src: aerrand.aerrander.home, alt: 'Aerrander app home screen with busy areas on a map', to: '/work/aerrand', product: 'Aerrand', screen: 'Aerrander app' },
-  { src: brainbox.question, alt: 'Brain Box mock test question in integrity mode', to: '/work/brain-box', product: 'Brain Box', screen: 'Mock test', finish: 'black' },
+  { src: brainbox.question, alt: 'Brain Box mock test question', to: '/work/brain-box', product: 'Brain Box', screen: 'Mock test', finish: 'black' },
   { src: aerrand.customer.approve, alt: 'Aerrand Guard inspection waiting for approval', to: '/work/aerrand', product: 'Aerrand', screen: 'Guard inspection' },
   { src: brainbox.needs, alt: 'Brain Box onboarding: choose how you study best', to: '/work/brain-box', product: 'Brain Box', screen: 'Study needs', finish: 'black' },
   { src: aerrand.aerrander.inspect, alt: 'Aerrander app checklist for inspecting an item', to: '/work/aerrand', product: 'Aerrand', screen: 'Inspect the item' },
@@ -171,9 +171,9 @@ const panels: Panel[] = [
   },
   {
     id: 'brain-box', to: '/work/brain-box', name: 'Brain Box', note: 'Working name', theme: 'wine',
-    summary: 'One calm, accessible app for the tests newcomers face: language, driving and citizenship. Mock exams feel like the real thing because you can’t cheat on them.',
+    summary: 'One app for the Ontario G1, the G2 road test and CELPIP. Practise in the real format, get feedback, then fix the weak spot.',
     facts: [
-      { k: 'Status', v: 'MVP scoped. Interactive prototype built.' },
+      { k: 'Status', v: 'All three modules built. Pre-launch.' },
       { k: 'My role', v: 'Product designer.' },
       { k: 'Since', v: '2026' },
     ],
